@@ -53,11 +53,7 @@ function questionKey(question: Question) {
 
 const categoryStats = computed(() => {
   const counts = new Map<string, number>()
-  const seen = new Set<string>()
   for (const question of props.questions) {
-    const key = questionKey(question) + '-' + question.category
-    if (seen.has(key)) continue
-    seen.add(key)
     counts.set(question.category, (counts.get(question.category) ?? 0) + 1)
   }
   return Array.from(counts, ([label, value]) => ({ label, value }))
@@ -66,11 +62,7 @@ const categoryStats = computed(() => {
 
 const batchStats = computed(() => {
   const counts = new Map<string, number>()
-  const seen = new Set<string>()
   for (const question of props.questions) {
-    const key = questionKey(question)
-    if (seen.has(key)) continue
-    seen.add(key)
     counts.set(question.exam, (counts.get(question.exam) ?? 0) + 1)
   }
   return Array.from(counts, ([label, value]) => ({ label, value }))
@@ -86,7 +78,7 @@ const overviewMax = computed(() =>
 )
 
 const totalQuestionCount = computed(() => {
-  return new Set(props.questions.map(questionKey)).size
+  return props.questions.length
 })
 
 function compareQuestions(a: Question, b: Question) {
