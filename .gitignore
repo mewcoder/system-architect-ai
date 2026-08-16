@@ -3,5 +3,11 @@ docs/.vitepress/cache
 docs/.vitepress/dist
 .DS_Store
 *.log
+
+# 个人学习资料和本地结构化数据，不提交仓库
 local/
+
+# PDF/数据处理中间结果，不作为正式数据源
 temp/
+
+__pycache__/

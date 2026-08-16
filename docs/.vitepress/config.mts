@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   lang: 'zh-CN',
   title: '系统架构师备考',
-  description: '基于 AI Agent 的系统架构设计师备考笔记、真题与方法实验',
+  description: '系统架构设计师备考笔记、真题与方法实验',
   base: '/system-architect-ai/',
   cleanUrls: true,
   lastUpdated: true,
@@ -14,63 +14,80 @@ export default defineConfig({
   themeConfig: {
     logo: '/favicon.svg',
     nav: [
-      { text: '总览', link: '/start/intro' },
-      { text: '综合知识', link: '/general-knowledge/overview' },
-      { text: '案例', link: '/practice/case' },
-      { text: '论文', link: '/practice/thesis' },
-      { text: '真题', link: '/exam/202505' }
+      { text: '总览', link: '/start/' },
+      { text: '综合知识', link: '/general/' },
+      { text: '案例', link: '/case/' },
+      { text: '论文', link: '/thesis/' }
     ],
     sidebar: {
       '/start/': [
         {
           text: '总览',
           items: [
-            { text: '考试介绍', link: '/start/intro' },
-            { text: '2026 下考情分析', link: '/start/2026-second-half-analysis' },
+            { text: '考试介绍', link: '/start/' },
+            { text: '考情分析', link: '/start/analysis' }
+          ]
+        }
+      ],
+      '/general/': [
+        {
+          text: '综合知识',
+          items: [
+            { text: '总览', link: '/general/' },
             {
-              text: '综合知识考点分析',
+              text: '考点',
               collapsed: false,
               items: [
-                { text: '总览', link: '/start/choice-points-overview' },
-                { text: '202605', link: '/start/202605-choice-points' },
-                { text: '202511', link: '/start/202511-choice-points' },
-                { text: '202505', link: '/start/202505-choice-points' },
-                { text: '202411', link: '/start/202411-choice-points' }
+                { text: '总览', link: '/general/points/' },
+                { text: '202605', link: '/general/points/202605' },
+                { text: '202511', link: '/general/points/202511' },
+                { text: '202505', link: '/general/points/202505' },
+                { text: '202411', link: '/general/points/202411' }
+              ]
+            },
+            {
+              text: '知识',
+              collapsed: false,
+              items: [
+                { text: '总览', link: '/general/knowledge/' },
+                { text: '计算机系统', link: '/general/knowledge/system' },
+                { text: '软件工程', link: '/general/knowledge/software' },
+                { text: '系统架构设计', link: '/general/knowledge/architecture' },
+                { text: '信息化与企业信息系统', link: '/general/knowledge/informationization' }
+              ]
+            },
+            {
+              text: '真题',
+              collapsed: false,
+              items: [
+                { text: '总览', link: '/general/exams/' },
+                { text: '知识产权', link: '/general/exams/legal' },
+                { text: '信息化', link: '/general/exams/enterprise' }
               ]
             }
           ]
         }
       ],
-      '/general-knowledge/': [
+      '/case/': [
         {
-          text: '综合知识',
+          text: '案例',
           items: [
-            { text: '考点地图', link: '/general-knowledge/overview' },
-            { text: '计算机系统', link: '/general-knowledge/computer-system' },
-            { text: '软件工程', link: '/general-knowledge/software-engineering' },
-            { text: '系统架构设计', link: '/general-knowledge/system-architecture' }
+            { text: '总览', link: '/case/' },
+            { text: '真题', link: '/case/exams/' },
+            { text: '考点', link: '/case/points/' },
+            { text: '知识', link: '/case/knowledge/' }
           ]
         }
       ],
-      '/practice/': [
+      '/thesis/': [
         {
-          text: '案例与论文',
+          text: '论文',
           items: [
-            { text: '案例分析', link: '/practice/case' },
-            { text: '论文写作', link: '/practice/thesis' }
+            { text: '总览', link: '/thesis/' },
+            { text: '真题', link: '/thesis/exams/' },
+            { text: '考点', link: '/thesis/points/' },
+            { text: '知识', link: '/thesis/knowledge/' }
           ]
-        }
-      ],
-      '/exam/': [
-        {
-          text: '真题',
-          items: [{ text: '2025 年 5 月', link: '/exam/202505' }]
-        }
-      ],
-      '/ai/': [
-        {
-          text: 'AI 备考实验',
-          items: [{ text: '学习闭环', link: '/ai/workflow' }]
         }
       ]
     },

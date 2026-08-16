@@ -45,7 +45,7 @@
           把知识、真题与复盘交给一套可迭代的学习系统。
         </p>
         <div class="hero-actions hero-enter hero-enter-4">
-          <a class="primary-action" href="./start/intro">开始 <span aria-hidden="true">→</span></a>
+          <a class="primary-action" href="./start/">开始 <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
