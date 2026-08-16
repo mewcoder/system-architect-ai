@@ -1,0 +1,1240 @@
+{
+  "2024-11": {
+    "exam": "2024-11",
+    "subject": "综合知识",
+    "questions": [
+      {
+        "no": 1,
+        "chapter": "系统安全",
+        "topic": "机密性"
+      },
+      {
+        "no": 2,
+        "chapter": "系统安全",
+        "topic": "完整性"
+      },
+      {
+        "no": 3,
+        "chapter": "专业英语",
+        "topic": "专业英语"
+      },
+      {
+        "no": 4,
+        "chapter": "专业英语",
+        "topic": "专业英语"
+      },
+      {
+        "no": 5,
+        "chapter": "专业英语",
+        "topic": "专业英语"
+      },
+      {
+        "no": 6,
+        "chapter": "专业英语",
+        "topic": "专业英语"
+      },
+      {
+        "no": 7,
+        "chapter": "专业英语",
+        "topic": "专业英语"
+      },
+      {
+        "no": 8,
+        "chapter": "数学",
+        "topic": "排列组合"
+      },
+      {
+        "no": 9,
+        "chapter": "系统安全",
+        "topic": "数据安全治理"
+      },
+      {
+        "no": 10,
+        "chapter": "系统安全",
+        "topic": "数据分级"
+      },
+      {
+        "no": 11,
+        "chapter": "系统架构",
+        "topic": "架构风格"
+      },
+      {
+        "no": 12,
+        "chapter": "操作系统",
+        "topic": "死锁预防"
+      },
+      {
+        "no": 13,
+        "chapter": "计算机网络",
+        "topic": "传输层协议"
+      },
+      {
+        "no": 14,
+        "chapter": "操作系统",
+        "topic": "进程三态"
+      },
+      {
+        "no": 15,
+        "chapter": "系统架构",
+        "topic": "易用性指标"
+      },
+      {
+        "no": 16,
+        "chapter": "知识产权",
+        "topic": "著作权期限"
+      },
+      {
+        "no": 17,
+        "chapter": "知识产权",
+        "topic": "外观设计专利"
+      },
+      {
+        "no": 18,
+        "chapter": "系统架构",
+        "topic": "可用性指标"
+      },
+      {
+        "no": 19,
+        "chapter": "数据库",
+        "topic": "数据库约束"
+      },
+      {
+        "no": 20,
+        "chapter": "操作系统",
+        "topic": "进程执行时空图"
+      },
+      {
+        "no": 21,
+        "chapter": "软件工程",
+        "topic": "RUP 用例驱动"
+      },
+      {
+        "no": 22,
+        "chapter": "系统安全",
+        "topic": "SQL 注入"
+      },
+      {
+        "no": 23,
+        "chapter": "系统架构",
+        "topic": "SOAP 特点"
+      },
+      {
+        "no": 24,
+        "chapter": "系统架构",
+        "topic": "架构 4+1 视图"
+      },
+      {
+        "no": 25,
+        "chapter": "计算机网络",
+        "topic": "路由器属于网络层"
+      },
+      {
+        "no": 26,
+        "chapter": "系统架构",
+        "topic": "ATAM 质量属性效用树"
+      },
+      {
+        "no": 27,
+        "chapter": "系统架构",
+        "topic": "效用树的结构"
+      },
+      {
+        "no": 28,
+        "chapter": "数学",
+        "topic": "逻辑推导"
+      },
+      {
+        "no": 29,
+        "chapter": "软件工程",
+        "topic": "进度成本压缩计算"
+      },
+      {
+        "no": 30,
+        "chapter": "软件工程",
+        "topic": "白盒测试"
+      },
+      {
+        "no": 31,
+        "chapter": "软件工程",
+        "topic": "测试覆盖级别"
+      },
+      {
+        "no": 32,
+        "chapter": "软件工程",
+        "topic": "四种维护类型判断"
+      },
+      {
+        "no": 33,
+        "chapter": "软件工程",
+        "topic": "设计模式归类"
+      },
+      {
+        "no": 34,
+        "chapter": "软件工程",
+        "topic": "设计模式判断"
+      },
+      {
+        "no": 35,
+        "chapter": "数据库",
+        "topic": "自然连接结果"
+      },
+      {
+        "no": 36,
+        "chapter": "数据库",
+        "topic": "关系运算操作对象"
+      },
+      {
+        "no": 37,
+        "chapter": "数据库",
+        "topic": "求候选键"
+      },
+      {
+        "no": 38,
+        "chapter": "系统架构",
+        "topic": "架构风格判断"
+      },
+      {
+        "no": 39,
+        "chapter": "系统架构",
+        "topic": "权衡点"
+      },
+      {
+        "no": 40,
+        "chapter": "系统架构",
+        "topic": "质量属性六要素"
+      },
+      {
+        "no": 41,
+        "chapter": "软件工程",
+        "topic": "UML 图描述用户界面"
+      },
+      {
+        "no": 42,
+        "chapter": "系统架构",
+        "topic": "ABSD 架构需求三方面"
+      },
+      {
+        "no": 43,
+        "chapter": "信息系统基础",
+        "topic": "企业应用集成"
+      },
+      {
+        "no": 44,
+        "chapter": "系统架构",
+        "topic": "架构复用步骤"
+      },
+      {
+        "no": 45,
+        "chapter": "软件工程",
+        "topic": "过程内聚"
+      },
+      {
+        "no": 46,
+        "chapter": "软件工程",
+        "topic": "V 模型测试阶段对应"
+      },
+      {
+        "no": 47,
+        "chapter": "信息系统基础",
+        "topic": "数据集成包含什么"
+      },
+      {
+        "no": 48,
+        "chapter": "软件工程",
+        "topic": "UML 用例参与者关系"
+      },
+      {
+        "no": 49,
+        "chapter": "系统架构",
+        "topic": "进程通信风格连接件"
+      },
+      {
+        "no": 50,
+        "chapter": "软件工程",
+        "topic": "基于数据驱动的测试"
+      },
+      {
+        "no": 51,
+        "chapter": "系统架构",
+        "topic": "WSDL 三个基本属性"
+      },
+      {
+        "no": 52,
+        "chapter": "操作系统",
+        "topic": "用户态使用特权指令是什么中断"
+      },
+      {
+        "no": 53,
+        "chapter": "系统安全",
+        "topic": "安全审计 4 要素"
+      },
+      {
+        "no": 54,
+        "chapter": "软件工程",
+        "topic": "不同领域元素重用"
+      },
+      {
+        "no": 55,
+        "chapter": "系统架构",
+        "topic": "效用树正确判断"
+      },
+      {
+        "no": 56,
+        "chapter": "可靠性",
+        "topic": "N 版本程序设计多了 3 个步骤"
+      },
+      {
+        "no": 57,
+        "chapter": "系统安全",
+        "topic": "MD5 判断"
+      },
+      {
+        "no": 58,
+        "chapter": "操作系统",
+        "topic": "分段存储"
+      },
+      {
+        "no": 59,
+        "chapter": "知识产权",
+        "topic": "侵权判定"
+      },
+      {
+        "no": 60,
+        "chapter": "系统架构",
+        "topic": "调用返回风格"
+      },
+      {
+        "no": 61,
+        "chapter": "系统架构",
+        "topic": "事件驱动风格"
+      },
+      {
+        "no": 62,
+        "chapter": "软件工程",
+        "topic": "配置管理"
+      },
+      {
+        "no": 63,
+        "chapter": "软件工程",
+        "topic": "螺旋模型"
+      },
+      {
+        "no": 64,
+        "chapter": "计算机网络",
+        "topic": "如何提高传输速率"
+      },
+      {
+        "no": 65,
+        "chapter": "信息系统基础",
+        "topic": "信息化需求 3 个层次"
+      },
+      {
+        "no": 66,
+        "chapter": "系统架构",
+        "topic": "ATAM 头脑风暴 3 种场景"
+      },
+      {
+        "no": 67,
+        "chapter": "系统架构",
+        "topic": "基于度量的评估方法"
+      },
+      {
+        "no": 68,
+        "chapter": "新技术",
+        "topic": "协同过滤算法"
+      },
+      {
+        "no": 69,
+        "chapter": "信息系统基础",
+        "topic": "专家系统学习机制"
+      },
+      {
+        "no": 70,
+        "chapter": "系统架构",
+        "topic": "架构演化 6 个步骤"
+      },
+      {
+        "no": 71,
+        "chapter": "系统架构",
+        "topic": "DSSA 建立过程正确性"
+      },
+      {
+        "no": 72,
+        "chapter": "数据库",
+        "topic": "三级模式"
+      },
+      {
+        "no": 73,
+        "chapter": "软件工程",
+        "topic": "数据流图判断"
+      },
+      {
+        "no": 74,
+        "chapter": "系统架构",
+        "topic": "可扩展性"
+      },
+      {
+        "no": 75,
+        "chapter": "系统架构",
+        "topic": "安全性"
+      }
+    ]
+  },
+  "2025-05": {
+    "exam": "2025-05",
+    "subject": "综合知识",
+    "questions": [
+      {
+        "no": 1,
+        "chapter": "操作系统",
+        "topic": "位示图计算"
+      },
+      {
+        "no": 2,
+        "chapter": "计算机网络",
+        "topic": "调制解调技术"
+      },
+      {
+        "no": 3,
+        "chapter": "软件工程",
+        "topic": "CMMI 分几个阶段"
+      },
+      {
+        "no": 4,
+        "chapter": "知识产权",
+        "topic": "机密级保密期限",
+        "outOfScope": true
+      },
+      {
+        "no": 5,
+        "chapter": "计算机网络",
+        "topic": "半双工通信"
+      },
+      {
+        "no": 6,
+        "chapter": "软件工程",
+        "topic": "内聚程度排序"
+      },
+      {
+        "no": 7,
+        "chapter": "数据库",
+        "topic": "关系运算不包括"
+      },
+      {
+        "no": 8,
+        "chapter": "软件工程",
+        "topic": "数据流图判断"
+      },
+      {
+        "no": 9,
+        "chapter": "软件工程",
+        "topic": "A/B 测试"
+      },
+      {
+        "no": 10,
+        "chapter": "硬件及嵌入式",
+        "topic": "民用级芯片温度",
+        "outOfScope": true
+      },
+      {
+        "no": 11,
+        "chapter": "数学",
+        "topic": "线性规划"
+      },
+      {
+        "no": 12,
+        "chapter": "系统架构",
+        "topic": "微服务断路器模式状态",
+        "outOfScope": true
+      },
+      {
+        "no": 13,
+        "chapter": "系统架构",
+        "topic": "CS 架构判断"
+      },
+      {
+        "no": 14,
+        "chapter": "计算机网络",
+        "topic": "奈奎斯特定理",
+        "outOfScope": true
+      },
+      {
+        "no": 15,
+        "chapter": "硬件及嵌入式",
+        "topic": "二次可编程只读存储器"
+      },
+      {
+        "no": 16,
+        "chapter": "硬件及嵌入式",
+        "topic": "非实时嵌入式操作系统",
+        "outOfScope": true
+      },
+      {
+        "no": 17,
+        "chapter": "软件工程",
+        "topic": "Web 服务器性能评测方法"
+      },
+      {
+        "no": 18,
+        "chapter": "信息系统基础",
+        "topic": "ERP 三个核心流程"
+      },
+      {
+        "no": 19,
+        "chapter": "软件工程",
+        "topic": "UML 4+1 视图"
+      },
+      {
+        "no": 20,
+        "chapter": "软件工程",
+        "topic": "UML 4+1 视图"
+      },
+      {
+        "no": 21,
+        "chapter": "软件工程",
+        "topic": "净室软件工程理论"
+      },
+      {
+        "no": 22,
+        "chapter": "操作系统",
+        "topic": "首次打开文件操作",
+        "outOfScope": true
+      },
+      {
+        "no": 23,
+        "chapter": "操作系统",
+        "topic": "优先级计算"
+      },
+      {
+        "no": 24,
+        "chapter": "新技术",
+        "topic": "大模型生成代码架构",
+        "outOfScope": true
+      },
+      {
+        "no": 25,
+        "chapter": "软件工程",
+        "topic": "需求跟踪判断"
+      },
+      {
+        "no": 26,
+        "chapter": "软件工程",
+        "topic": "逆向工程抽象级别"
+      },
+      {
+        "no": 27,
+        "chapter": "数据库",
+        "topic": "数据库三级模式"
+      },
+      {
+        "no": 28,
+        "chapter": "数据库",
+        "topic": "数据库三级模式"
+      },
+      {
+        "no": 29,
+        "chapter": "系统架构",
+        "topic": "架构风格脆弱性"
+      },
+      {
+        "no": 30,
+        "chapter": "软件工程",
+        "topic": "数据流表示符号",
+        "outOfScope": true
+      },
+      {
+        "no": 31,
+        "chapter": "专业英语",
+        "topic": "质量属性英文题"
+      },
+      {
+        "no": 32,
+        "chapter": "专业英语",
+        "topic": "质量属性英文题"
+      },
+      {
+        "no": 33,
+        "chapter": "专业英语",
+        "topic": "质量属性英文题"
+      },
+      {
+        "no": 34,
+        "chapter": "专业英语",
+        "topic": "质量属性英文题"
+      },
+      {
+        "no": 35,
+        "chapter": "专业英语",
+        "topic": "质量属性英文题"
+      },
+      {
+        "no": 36,
+        "chapter": "软件工程",
+        "topic": "用例模型关系"
+      },
+      {
+        "no": 37,
+        "chapter": "软件工程",
+        "topic": "螺旋模型"
+      },
+      {
+        "no": 38,
+        "chapter": "软件工程",
+        "topic": "进度计算"
+      },
+      {
+        "no": 39,
+        "chapter": "软件工程",
+        "topic": "包含继承",
+        "outOfScope": true
+      },
+      {
+        "no": 40,
+        "chapter": "数学",
+        "topic": "集合计算",
+        "outOfScope": true
+      },
+      {
+        "no": 41,
+        "chapter": "新技术",
+        "topic": "RESTful 部分更新",
+        "outOfScope": true
+      },
+      {
+        "no": 42,
+        "chapter": "操作系统",
+        "topic": "紧急优先调度算法的英文",
+        "outOfScope": true
+      },
+      {
+        "no": 43,
+        "chapter": "软件工程",
+        "topic": "Scrum backlog 需求排序标准",
+        "outOfScope": true
+      },
+      {
+        "no": 44,
+        "chapter": "软件工程",
+        "topic": "单元测试依据"
+      },
+      {
+        "no": 45,
+        "chapter": "软件工程",
+        "topic": "项目管理和支撑组输出内容",
+        "outOfScope": true
+      },
+      {
+        "no": 46,
+        "chapter": "软件工程",
+        "topic": "RUP 细化阶段"
+      },
+      {
+        "no": 47,
+        "chapter": "软件工程",
+        "topic": "覆盖类型强弱判断"
+      },
+      {
+        "no": 48,
+        "chapter": "知识产权",
+        "topic": "软件著作权申请材料"
+      },
+      {
+        "no": 49,
+        "chapter": "知识产权",
+        "topic": "软件著作权公开内容",
+        "outOfScope": true
+      },
+      {
+        "no": 50,
+        "chapter": "新技术",
+        "topic": "工业大模型三层"
+      },
+      {
+        "no": 51,
+        "chapter": "新技术",
+        "topic": "信息系统监理工程的四控",
+        "outOfScope": true
+      },
+      {
+        "no": 52,
+        "chapter": "软件工程",
+        "topic": "黑盒测试方法"
+      },
+      {
+        "no": 53,
+        "chapter": "新技术",
+        "topic": "边缘计算特点"
+      },
+      {
+        "no": 54,
+        "chapter": "系统架构",
+        "topic": "可靠性子特性"
+      },
+      {
+        "no": 55,
+        "chapter": "软件工程",
+        "topic": "调试和测试的区别"
+      },
+      {
+        "no": 56,
+        "chapter": "软件工程",
+        "topic": "结构化分析特点"
+      },
+      {
+        "no": 57,
+        "chapter": "软件工程",
+        "topic": "UML 行为图动作定义",
+        "outOfScope": true
+      },
+      {
+        "no": 58,
+        "chapter": "系统架构",
+        "topic": "可测试性度量指标"
+      },
+      {
+        "no": 59,
+        "chapter": "系统架构",
+        "topic": "Web 服务相关定义",
+        "outOfScope": true
+      },
+      {
+        "no": 60,
+        "chapter": "系统安全",
+        "topic": "开放系统 5 个安全服务"
+      },
+      {
+        "no": 61,
+        "chapter": "数据库",
+        "topic": "求候选键"
+      },
+      {
+        "no": 62,
+        "chapter": "系统架构",
+        "topic": "服务请求者和利益提供者之间的数据规范"
+      },
+      {
+        "no": 63,
+        "chapter": "新技术",
+        "topic": "数据中台的应用场景",
+        "outOfScope": true
+      },
+      {
+        "no": 64,
+        "chapter": "操作系统",
+        "topic": "运行到就绪态转换条件"
+      },
+      {
+        "no": 65,
+        "chapter": "软件工程",
+        "topic": "软件产品线演变生命周期模型",
+        "outOfScope": true
+      },
+      {
+        "no": 66,
+        "chapter": "系统架构",
+        "topic": "黑板风格数据处理单元"
+      },
+      {
+        "no": 67,
+        "chapter": "数学",
+        "topic": "所有取值组合个数计算",
+        "outOfScope": true
+      },
+      {
+        "no": 68,
+        "chapter": "新技术",
+        "topic": "机器学习算法定义判断",
+        "outOfScope": true
+      },
+      {
+        "no": 69,
+        "chapter": "软件工程",
+        "topic": "回归测试目的"
+      },
+      {
+        "no": 70,
+        "chapter": "系统架构",
+        "topic": "安全性质量属性场景判断"
+      },
+      {
+        "no": 71,
+        "chapter": "软件工程",
+        "topic": "用户角度影响软件质量三个因素"
+      },
+      {
+        "no": 72,
+        "chapter": "系统架构",
+        "topic": "SOA 中解耦服务提供者和请求者"
+      },
+      {
+        "no": 73,
+        "chapter": "数据库",
+        "topic": "内模式概念"
+      },
+      {
+        "no": 74,
+        "chapter": "系统架构",
+        "topic": "领域驱动的层次",
+        "outOfScope": true
+      },
+      {
+        "no": 75,
+        "chapter": "系统架构",
+        "topic": "成员属性"
+      }
+    ]
+  },
+  "2025-11": {
+    "exam": "2025-11",
+    "subject": "综合知识",
+    "questions": [
+      {
+        "no": 1,
+        "chapter": "计算机网络",
+        "topic": "同步时钟信号编码",
+        "outOfScope": true
+      },
+      {
+        "no": 2,
+        "chapter": "系统架构",
+        "topic": "质量属性"
+      },
+      {
+        "no": 3,
+        "chapter": "系统架构",
+        "topic": "质量属性"
+      },
+      {
+        "no": 4,
+        "chapter": "专业英语",
+        "topic": "多智能体系统"
+      },
+      {
+        "no": 5,
+        "chapter": "专业英语",
+        "topic": "多智能体系统"
+      },
+      {
+        "no": 6,
+        "chapter": "专业英语",
+        "topic": "多智能体系统"
+      },
+      {
+        "no": 7,
+        "chapter": "专业英语",
+        "topic": "多智能体系统"
+      },
+      {
+        "no": 8,
+        "chapter": "专业英语",
+        "topic": "多智能体系统"
+      },
+      {
+        "no": 9,
+        "chapter": "系统架构",
+        "topic": "解释器风格"
+      },
+      {
+        "no": 10,
+        "chapter": "软件工程",
+        "topic": "最晚开始时间计算"
+      },
+      {
+        "no": 11,
+        "chapter": "软件工程",
+        "topic": "逆向工程级别"
+      },
+      {
+        "no": 12,
+        "chapter": "数学",
+        "topic": "均匀分布概率",
+        "outOfScope": true
+      },
+      {
+        "no": 13,
+        "chapter": "信息系统基础",
+        "topic": "电子信息交换系统组成",
+        "outOfScope": true
+      },
+      {
+        "no": 14,
+        "chapter": "系统架构",
+        "topic": "风格改变",
+        "outOfScope": true
+      },
+      {
+        "no": 15,
+        "chapter": "系统架构",
+        "topic": "CBAM"
+      },
+      {
+        "no": 16,
+        "chapter": "系统架构",
+        "topic": "DSSA 领域分析"
+      },
+      {
+        "no": 17,
+        "chapter": "软件工程",
+        "topic": "UML 分支和分叉"
+      },
+      {
+        "no": 18,
+        "chapter": "软件工程",
+        "topic": "UML 部署图"
+      },
+      {
+        "no": 19,
+        "chapter": "软件工程",
+        "topic": "压力测试"
+      },
+      {
+        "no": 20,
+        "chapter": "知识产权",
+        "topic": "工业产权",
+        "outOfScope": true
+      },
+      {
+        "no": 21,
+        "chapter": "知识产权",
+        "topic": "专利法判断"
+      },
+      {
+        "no": 22,
+        "chapter": "知识产权",
+        "topic": "商业秘密判断"
+      },
+      {
+        "no": 23,
+        "chapter": "系统安全",
+        "topic": "抗抵赖性"
+      },
+      {
+        "no": 24,
+        "chapter": "系统架构",
+        "topic": "进程通信风格"
+      },
+      {
+        "no": 25,
+        "chapter": "数学",
+        "topic": "加速比计算"
+      },
+      {
+        "no": 26,
+        "chapter": "系统安全",
+        "topic": "URL 签名判断"
+      },
+      {
+        "no": 27,
+        "chapter": "系统架构",
+        "topic": "Lambda 架构层次"
+      },
+      {
+        "no": 28,
+        "chapter": "新技术",
+        "topic": "文本聚类分析算法",
+        "outOfScope": true
+      },
+      {
+        "no": 29,
+        "chapter": "系统性能",
+        "topic": "评价程序准确程度排序"
+      },
+      {
+        "no": 30,
+        "chapter": "计算机网络",
+        "topic": "子网掩码和子网个数计算"
+      },
+      {
+        "no": 31,
+        "chapter": "数学",
+        "topic": "集合计算"
+      },
+      {
+        "no": 32,
+        "chapter": "数据库",
+        "topic": "关系代数运算"
+      },
+      {
+        "no": 33,
+        "chapter": "数据库",
+        "topic": "数据库设计"
+      },
+      {
+        "no": 34,
+        "chapter": "系统架构",
+        "topic": "Hofmeister 的 4 视图模型"
+      },
+      {
+        "no": 35,
+        "chapter": "系统安全",
+        "topic": "PKI 三类实体",
+        "outOfScope": true
+      },
+      {
+        "no": 36,
+        "chapter": "操作系统",
+        "topic": "互斥信号量"
+      },
+      {
+        "no": 37,
+        "chapter": "嵌入式",
+        "topic": "嵌入式特性"
+      },
+      {
+        "no": 38,
+        "chapter": "系统架构",
+        "topic": "ATAM 场景"
+      },
+      {
+        "no": 39,
+        "chapter": "新技术",
+        "topic": "知识表示方法"
+      },
+      {
+        "no": 40,
+        "chapter": "系统架构",
+        "topic": "信息集成四种服务"
+      },
+      {
+        "no": 41,
+        "chapter": "数据库",
+        "topic": "SELECT 结果"
+      },
+      {
+        "no": 42,
+        "chapter": "软件工程",
+        "topic": "Scrum 方法"
+      },
+      {
+        "no": 43,
+        "chapter": "数据库",
+        "topic": "共享锁"
+      },
+      {
+        "no": 44,
+        "chapter": "软件工程",
+        "topic": "判定树在 DFD 中的作用"
+      },
+      {
+        "no": 45,
+        "chapter": "系统架构",
+        "topic": "专家系统组成部件"
+      },
+      {
+        "no": 46,
+        "chapter": "计算机网络",
+        "topic": "数据链路层功能"
+      },
+      {
+        "no": 47,
+        "chapter": "系统架构",
+        "topic": "ATAM 效用树两个核心维度"
+      },
+      {
+        "no": 48,
+        "chapter": "软件工程",
+        "topic": "输入输出"
+      },
+      {
+        "no": 49,
+        "chapter": "软件工程",
+        "topic": "创建型设计模式归属"
+      },
+      {
+        "no": 50,
+        "chapter": "软件工程",
+        "topic": "描述数据流的工具"
+      },
+      {
+        "no": 51,
+        "chapter": "系统架构",
+        "topic": "ABSD 三个基础"
+      },
+      {
+        "no": 52,
+        "chapter": "软件工程",
+        "topic": "软件测试的顺序"
+      },
+      {
+        "no": 53,
+        "chapter": "软件工程",
+        "topic": "CMMI 涉及阶段"
+      },
+      {
+        "no": 54,
+        "chapter": "软件工程",
+        "topic": "内聚判断"
+      },
+      {
+        "no": 55,
+        "chapter": "软件工程",
+        "topic": "性能设计考虑因素",
+        "outOfScope": true
+      },
+      {
+        "no": 56,
+        "chapter": "新技术",
+        "topic": "AI 监督学习"
+      },
+      {
+        "no": 57,
+        "chapter": "操作系统",
+        "topic": "绝对路径"
+      },
+      {
+        "no": 58,
+        "chapter": "新技术",
+        "topic": "XML 说法判断"
+      },
+      {
+        "no": 59,
+        "chapter": "系统架构",
+        "topic": "MVP 说法判断"
+      },
+      {
+        "no": 60,
+        "chapter": "系统架构",
+        "topic": "CS 架构风格"
+      },
+      {
+        "no": 61,
+        "chapter": "系统架构",
+        "topic": "架构风格场景判断"
+      },
+      {
+        "no": 62,
+        "chapter": "系统架构",
+        "topic": "质量属性判断"
+      },
+      {
+        "no": 63,
+        "chapter": "软件工程",
+        "topic": "软件复用"
+      },
+      {
+        "no": 64,
+        "chapter": "系统架构",
+        "topic": "微服务架构判断"
+      },
+      {
+        "no": 65,
+        "chapter": "可靠性",
+        "topic": "软件失效概率判断"
+      },
+      {
+        "no": 66,
+        "chapter": "软件工程",
+        "topic": "划分生命周期"
+      },
+      {
+        "no": 67,
+        "chapter": "软件工程",
+        "topic": "过程特性",
+        "outOfScope": true
+      },
+      {
+        "no": 68,
+        "chapter": "系统架构",
+        "topic": "云原生不可变基础设施",
+        "outOfScope": true
+      },
+      {
+        "no": 69,
+        "chapter": "嵌入式",
+        "topic": "嵌入式系统性能指标"
+      },
+      {
+        "no": 70,
+        "chapter": "操作系统",
+        "topic": "磁盘和位示图计算"
+      },
+      {
+        "no": 71,
+        "chapter": "软件工程",
+        "topic": "软件测试的目的"
+      }
+    ]
+  },
+  "2026-05": {
+    "exam": "2026-05",
+    "subject": "综合知识",
+    "chapterCounts": {
+      "信息系统基础": 0
+    },
+    "questions": [
+      { "no": 1, "chapter": "系统安全", "topic": "DES 加密" },
+      { "no": 2, "chapter": "系统架构", "topic": "运行期间质量属性" },
+      { "no": 3, "chapter": "新技术", "topic": "Transformer 自然语言处理", "outOfScope": true },
+      { "no": 4, "chapter": "数学", "topic": "最小公倍数", "outOfScope": true },
+      { "no": 5, "chapter": "软件工程", "topic": "边界值分析" },
+      { "no": 7, "chapter": "系统架构", "topic": "Lambda 三层架构" },
+      { "no": 8, "chapter": "系统架构", "topic": "Lambda 三层架构" },
+      { "no": 9, "chapter": "系统安全", "topic": "访问控制矩阵" },
+      { "no": 10, "chapter": "系统架构", "topic": "黑板风格" },
+      { "no": 11, "chapter": "软件工程", "topic": "V 模型特点" },
+      { "no": 12, "chapter": "知识产权", "topic": "专利法判断" },
+      { "no": 12, "chapter": "系统架构", "topic": "ABSD 定义" },
+      { "no": 13, "chapter": "知识产权", "topic": "专利优先权期限", "outOfScope": true },
+      { "no": 13, "chapter": "系统架构", "topic": "ABSD 定义" },
+      { "no": 14, "chapter": "新技术", "topic": "边缘计算和算力" },
+      { "no": 15, "chapter": "数学", "topic": "最小生成树" },
+      { "no": 16, "chapter": "操作系统", "topic": "索引文件大小计算" },
+      { "no": 17, "chapter": "系统架构", "topic": "CS 架构胖客户端" },
+      { "no": 18, "chapter": "系统架构", "topic": "DSSA 五个阶段" },
+      { "no": 19, "chapter": "系统架构", "topic": "读写分离架构" },
+      { "no": 20, "chapter": "数学", "topic": "对数函数定义域" },
+      { "no": 21, "chapter": "软件工程", "topic": "装饰模式" },
+      { "no": 22, "chapter": "软件工程", "topic": "单例模式" },
+      { "no": 23, "chapter": "嵌入式", "topic": "DO-178 安全等级和 CMMI 对比" },
+      { "no": 24, "chapter": "嵌入式", "topic": "DO-178 安全等级和 CMMI 对比" },
+      { "no": 25, "chapter": "软件工程", "topic": "测试左移目的" },
+      { "no": 26, "chapter": "软件工程", "topic": "敏捷开发测试" },
+      { "no": 27, "chapter": "操作系统", "topic": "父进程和子进程" },
+      { "no": 28, "chapter": "系统安全", "topic": "SSL 协议" },
+      { "no": 29, "chapter": "嵌入式", "topic": "嵌入式强实时系统" },
+      { "no": 30, "chapter": "嵌入式", "topic": "编译阶段任务" },
+      { "no": 31, "chapter": "数据库", "topic": "范式判断" },
+      { "no": 32, "chapter": "数据库", "topic": "自然连接" },
+      { "no": 44, "chapter": "数据库", "topic": "ER 图的联系" },
+      { "no": 45, "chapter": "数据库", "topic": "ER 图的实体" },
+      { "no": 33, "chapter": "新技术", "topic": "多模态大模型", "outOfScope": true },
+      { "no": 34, "chapter": "新技术", "topic": "世界模型", "outOfScope": true },
+      { "no": 35, "chapter": "软件工程", "topic": "白盒测试" },
+      { "no": 36, "chapter": "专业英语", "topic": "分层架构相关英文题" },
+      { "no": 37, "chapter": "专业英语", "topic": "分层架构相关英文题" },
+      { "no": 38, "chapter": "专业英语", "topic": "分层架构相关英文题" },
+      { "no": 39, "chapter": "专业英语", "topic": "分层架构相关英文题" },
+      { "no": 40, "chapter": "专业英语", "topic": "分层架构相关英文题" },
+      { "no": 41, "chapter": "软件工程", "topic": "黑盒测试方法" },
+      { "no": 46, "chapter": "系统架构", "topic": "架构评估方法" },
+      { "no": 47, "chapter": "系统架构", "topic": "架构评估方法" },
+      { "no": 48, "chapter": "系统架构", "topic": "定性定量结合的架构评估", "outOfScope": true },
+      { "no": 49, "chapter": "系统架构", "topic": "批处理和管道过滤器风格" },
+      { "no": 50, "chapter": "系统架构", "topic": "进程通信风格定义" },
+      { "no": 51, "chapter": "软件工程", "topic": "用例图关系" },
+      { "no": 52, "chapter": "新技术", "topic": "无监督学习" },
+      { "no": 53, "chapter": "系统架构", "topic": "基于规则的架构" },
+      { "no": 54, "chapter": "系统安全", "topic": "数字签名技术" },
+      { "no": 55, "chapter": "系统安全", "topic": "DDoS 攻击" },
+      { "no": 56, "chapter": "系统架构", "topic": "DSSA 开发过程" },
+      { "no": 57, "chapter": "操作系统", "topic": "中断和操作系统" },
+      { "no": 58, "chapter": "系统架构", "topic": "主程序和子程序调用" },
+      { "no": 59, "chapter": "新技术", "topic": "知识图谱", "outOfScope": true },
+      { "no": 60, "chapter": "软件工程", "topic": "行为模型" },
+      { "no": 61, "chapter": "计算机网络", "topic": "IEEE 802.11b 传输速率", "outOfScope": true },
+      { "no": 61, "chapter": "系统架构", "topic": "架构评估判断" },
+      { "no": 62, "chapter": "数据库", "topic": "实体和表" },
+      { "no": 63, "chapter": "系统架构", "topic": "架构风格判断" },
+      { "no": 64, "chapter": "系统架构", "topic": "架构复用" },
+      { "no": 65, "chapter": "系统架构", "topic": "质量属性判断" },
+      { "no": 66, "chapter": "新技术", "topic": "AI 数据投毒" },
+      { "no": 67, "chapter": "知识产权", "topic": "知识产权" },
+      { "no": 68, "chapter": "系统架构", "topic": "事件驱动架构" },
+      { "no": 69, "chapter": "系统安全", "topic": "认证技术" },
+      { "no": 70, "chapter": "新技术", "topic": "图计算" },
+      { "no": 71, "chapter": "系统架构", "topic": "微服务架构" },
+      { "no": 72, "chapter": "可靠性", "topic": "系统故障率计算", "outOfScope": true },
+      { "no": 73, "chapter": "操作系统", "topic": "文件存储方式" }
+    ]
+  }
+}

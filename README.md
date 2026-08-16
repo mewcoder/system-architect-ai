@@ -1,15 +1,29 @@
-# 📝 system-architect-ai
+# 系统架构师备考
 
-> 🤖 基于 AI Agent 的软考高级「系统架构设计师」备考学习仓库
+基于 AI Agent 的软考高级「系统架构设计师」备考学习站，使用 VitePress 构建并通过 GitHub Pages 发布。
 
-本项目为备战 **2026 年下半年软考高级「系统架构设计师」** 考试而创建。
+## 本地开发
 
-尝试将 **AI Agent** 引入真实备考过程，用于辅助知识整理、学习、练习、复习和总结，并持续记录整个过程中的方法、Prompt、Agent 与学习方式的迭代。
+```bash
+npm install
+npm run docs:dev
+```
 
-这里既是一个学习仓库，也是一场关于 **“如何基于 AI Agent 准备一场考试”** 的实验。🧪
+构建和预览：
 
-## 🎯 目标
+```bash
+npm run docs:build
+npm run docs:preview
+```
 
-* 🏆 通过 2026 年下半年「系统架构设计师」考试
-* 🔍 探索 AI Agent 辅助备考的有效方式
-* 📚 记录并开源整个学习与迭代过程
+## 内容结构
+
+- 考试介绍与考情分析
+- 综合知识考点地图
+- 案例分析与论文写作
+- 历年真题复盘
+- AI Agent 学习方法实验
+
+## 部署
+
+推送到 `main` 分支后，GitHub Actions 会构建 `docs/.vitepress/dist` 并发布到 GitHub Pages。
