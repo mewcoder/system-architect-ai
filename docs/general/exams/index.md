@@ -4,5 +4,5 @@
 
 ## 题库
 
-- [知识产权](./legal)
-- [信息化](./enterprise)
+- [知识产权](./property)
+- [信息化](./informatization)

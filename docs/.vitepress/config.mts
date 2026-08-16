@@ -53,7 +53,8 @@ export default defineConfig({
                 { text: '计算机系统', link: '/general/knowledge/system' },
                 { text: '软件工程', link: '/general/knowledge/software' },
                 { text: '系统架构设计', link: '/general/knowledge/architecture' },
-                { text: '信息化与企业信息系统', link: '/general/knowledge/informationization' }
+                { text: '信息化', link: '/general/knowledge/informatization' },
+                { text: '知识产权', link: '/general/knowledge/property' }
               ]
             },
             {
@@ -61,8 +62,8 @@ export default defineConfig({
               collapsed: false,
               items: [
                 { text: '总览', link: '/general/exams/' },
-                { text: '知识产权', link: '/general/exams/legal' },
-                { text: '信息化', link: '/general/exams/enterprise' }
+                { text: '知识产权', link: '/general/exams/property' },
+                { text: '信息化', link: '/general/exams/informatization' }
               ]
             }
           ]

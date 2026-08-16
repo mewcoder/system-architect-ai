@@ -12,6 +12,7 @@ type Question = {
   stem: string
   options: Record<string, string>
   answer: string | null
+  knowledge?: string | null
   explanation: string | null
 }
 
@@ -27,6 +28,7 @@ type QuestionGroup = {
 
 const props = defineProps<{
   questions: Question[]
+  compact?: boolean
 }>()
 
 const query = ref('')
@@ -87,19 +89,30 @@ const totalQuestionCount = computed(() => {
   return new Set(props.questions.map(questionKey)).size
 })
 
+function compareQuestions(a: Question, b: Question) {
+  return (
+    b.exam.localeCompare(a.exam) ||
+    b.question_no - a.question_no ||
+    a.part_no - b.part_no
+  )
+}
+
 const filteredQuestions = computed(() => {
   const keyword = query.value.trim().toLowerCase()
-  return props.questions.filter((question) => {
-    const matchesExam = examFilter.value === 'all' || question.exam === examFilter.value
-    const matchesCategory =
-      categoryFilter.value === 'all' || question.category === categoryFilter.value
-    const searchable = [
-      question.stem,
-      question.explanation ?? '',
-      ...Object.values(question.options)
-    ].join(' ').toLowerCase()
-    return matchesExam && matchesCategory && (!keyword || searchable.includes(keyword))
-  })
+  return props.questions
+    .filter((question) => {
+      const matchesExam = examFilter.value === 'all' || question.exam === examFilter.value
+      const matchesCategory =
+        categoryFilter.value === 'all' || question.category === categoryFilter.value
+      const searchable = [
+        question.stem,
+        question.knowledge ?? '',
+        question.explanation ?? '',
+        ...Object.values(question.options)
+      ].join(' ').toLowerCase()
+      return matchesExam && matchesCategory && (!keyword || searchable.includes(keyword))
+    })
+    .sort(compareQuestions)
 })
 
 const groupedQuestions = computed<QuestionGroup[]>(() => {
@@ -187,7 +200,7 @@ function renderMarkdown(value: string | null) {
 
 <template>
 <div class="question-bank">
-  <div class="question-bank-overview">
+  <div v-if="!compact" class="question-bank-overview">
     <div class="question-bank-overview-head">
       <div class="question-bank-tabs" role="tablist" aria-label="题目统计">
         <button
@@ -232,7 +245,7 @@ function renderMarkdown(value: string | null) {
     </div>
   </div>
 
-  <div class="question-bank-toolbar">
+  <div v-if="!compact" class="question-bank-toolbar">
     <label>
       <span>考试批次</span>
       <select v-model="examFilter">
@@ -295,11 +308,23 @@ function renderMarkdown(value: string | null) {
           class="question-feedback"
           :class="{ 'is-correct': isCorrect(part), 'is-wrong': !isCorrect(part) }"
         >
-          <p class="question-answer-key">正确答案：{{ part.answer || '待补充' }}</p>
+          <div class="question-feedback-head">
+            <p class="question-answer-key">正确答案：{{ part.answer || '待补充' }}</p>
+            <button
+              type="button"
+              class="question-clear"
+              aria-label="清除答案并隐藏解析"
+              title="清除答案并隐藏解析"
+              @click="clearAnswer(part)"
+            >
+              关闭
+            </button>
+          </div>
           <div v-if="part.explanation" v-html="renderMarkdown(part.explanation)"></div>
-          <button type="button" class="question-clear" @click="clearAnswer(part)">
-            清除作答并隐藏解析
-          </button>
+          <div v-if="part.knowledge" class="question-knowledge">
+            <strong>知识点</strong>
+            <div v-html="renderMarkdown(part.knowledge)"></div>
+          </div>
         </div>
       </div>
     </article>
