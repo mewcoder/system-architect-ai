@@ -2,6 +2,8 @@
 
 系统架构设计师备考学习站，按考试内容整理学习资料、考点、知识和历年真题。
 
+在线访问：[系统架构师备考学习站](https://mewcoder.github.io/system-architect-ai/)
+
 ## 页面预览
 
 ![真题页面预览](docs/public/assets/readme/question-bank.png)
