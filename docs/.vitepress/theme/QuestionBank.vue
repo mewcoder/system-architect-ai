@@ -5,7 +5,7 @@ import { withBase } from 'vitepress'
 type Question = {
   id: string
   subject: string
-  category: string
+  categories: string[]
   exam: string
   question_no: number
   part_no: number
@@ -29,13 +29,26 @@ type QuestionGroup = {
 const props = defineProps<{
   questions: Question[]
   compact?: boolean
+  categoryChapters?: Record<string, string>
 }>()
 
 const query = ref('')
 const examFilter = ref('all')
+const chapterFilter = ref('all')
 const categoryFilter = ref('all')
 const overviewMode = ref('category')
 const userAnswers = ref<Record<string, string>>({})
+
+const hasChapters = computed(() => Boolean(props.categoryChapters && Object.keys(props.categoryChapters).length))
+
+function chapterForCategory(category: string) {
+  return props.categoryChapters?.[category] ?? '未分类'
+}
+
+const chapters = computed(() => [
+  'all',
+  ...Array.from(new Set(props.questions.map((question) => chapterForCategory(question.category)))).sort()
+])
 
 const exams = computed(() => [
   'all',
@@ -48,24 +61,28 @@ const categories = computed(() => [
 ])
 
 function questionKey(question: Question) {
-  return question.exam + '-' + question.question_no
+  return question.subject + '-' + question.exam + '-' + question.question_no
 }
 
 const categoryStats = computed(() => {
-  const counts = new Map<string, number>()
+  const groups = new Map<string, Set<string>>()
   for (const question of props.questions) {
-    counts.set(question.category, (counts.get(question.category) ?? 0) + 1)
+    const categoryGroups = groups.get(question.category) ?? new Set<string>()
+    categoryGroups.add(questionKey(question))
+    groups.set(question.category, categoryGroups)
   }
-  return Array.from(counts, ([label, value]) => ({ label, value }))
+  return Array.from(groups, ([label, value]) => ({ label, value: value.size }))
     .sort((a, b) => b.value - a.value || a.label.localeCompare(b.label))
 })
 
 const batchStats = computed(() => {
-  const counts = new Map<string, number>()
+  const groups = new Map<string, Set<string>>()
   for (const question of props.questions) {
-    counts.set(question.exam, (counts.get(question.exam) ?? 0) + 1)
+    const batchGroups = groups.get(question.exam) ?? new Set<string>()
+    batchGroups.add(questionKey(question))
+    groups.set(question.exam, batchGroups)
   }
-  return Array.from(counts, ([label, value]) => ({ label, value }))
+  return Array.from(groups, ([label, value]) => ({ label, value: value.size }))
     .sort((a, b) => a.label.localeCompare(b.label))
 })
 
@@ -78,14 +95,16 @@ const overviewMax = computed(() =>
 )
 
 const totalQuestionCount = computed(() => {
-  return props.questions.length
+  return new Set(props.questions.map(questionKey)).size
 })
 
 function compareQuestions(a: Question, b: Question) {
   return (
     b.exam.localeCompare(a.exam) ||
     b.question_no - a.question_no ||
-    a.part_no - b.part_no
+    a.part_no - b.part_no ||
+    a.category.localeCompare(b.category) ||
+    a.id.localeCompare(b.id)
   )
 }
 
@@ -94,6 +113,8 @@ const filteredQuestions = computed(() => {
   return props.questions
     .filter((question) => {
       const matchesExam = examFilter.value === 'all' || question.exam === examFilter.value
+      const matchesChapter =
+        chapterFilter.value === 'all' || chapterForCategory(question.category) === chapterFilter.value
       const matchesCategory =
         categoryFilter.value === 'all' || question.category === categoryFilter.value
       const searchable = [
@@ -102,7 +123,7 @@ const filteredQuestions = computed(() => {
         question.explanation ?? '',
         ...Object.values(question.options)
       ].join(' ').toLowerCase()
-      return matchesExam && matchesCategory && (!keyword || searchable.includes(keyword))
+      return matchesExam && matchesChapter && matchesCategory && (!keyword || searchable.includes(keyword))
     })
     .sort(compareQuestions)
 })
@@ -110,7 +131,7 @@ const filteredQuestions = computed(() => {
 const groupedQuestions = computed<QuestionGroup[]>(() => {
   const groups = new Map<string, QuestionGroup>()
   for (const question of filteredQuestions.value) {
-    const key = question.subject + '-' + question.exam + '-' + question.question_no + '-' + question.category
+    const key = questionKey(question)
     const existing = groups.get(key)
     if (existing) {
       existing.parts.push(question)
@@ -119,12 +140,15 @@ const groupedQuestions = computed<QuestionGroup[]>(() => {
     groups.set(key, {
       key,
       subject: question.subject,
-      category: question.category,
+      categories: [question.category],
       exam: question.exam,
       question_no: question.question_no,
       stem: question.stem,
       parts: [question]
     })
+  }
+  for (const group of groups.values()) {
+    group.categories = Array.from(new Set(group.parts.map((part) => part.category)))
   }
   return Array.from(groups.values())
 })
@@ -246,6 +270,14 @@ function renderMarkdown(value: string | null) {
         </option>
       </select>
     </label>
+    <label v-if="hasChapters">
+      <span>章节</span>
+      <select v-model="chapterFilter">
+        <option v-for="chapter in chapters" :key="chapter" :value="chapter">
+          {{ chapter === 'all' ? '全部章节' : chapter }}
+        </option>
+      </select>
+    </label>
     <label>
       <span>分类</span>
       <select v-model="categoryFilter">
@@ -266,17 +298,23 @@ function renderMarkdown(value: string | null) {
         <span>
           {{ examLabel(group.exam) }} - {{ group.question_no }} 题
         </span>
-        <span>{{ group.category }}</span>
+        <span v-if="hasChapters">{{ Array.from(new Set(group.categories.map(chapterForCategory))).join('、') }}</span>
+        <span v-for="category in group.categories" :key="category">{{ category }}</span>
       </div>
       <div class="question-stem" v-html="renderMarkdown(group.stem)"></div>
       <div
-        v-for="part in group.parts"
+        v-for="(part, partIndex) in group.parts"
         :key="part.id"
         class="question-part"
       >
         <div v-if="group.parts.length > 1" class="question-part-label">
-          问题{{ part.part_no }}
+          {{ new Set(group.parts.map((item) => item.part_no)).size > 1 ? `分值 ${part.part_no}` : `记录 ${partIndex + 1}` }}
         </div>
+        <div
+          v-if="group.parts.length > 1 && part.stem !== group.stem"
+          class="question-part-stem"
+          v-html="renderMarkdown(part.stem)"
+        ></div>
         <div class="question-options">
           <button
             v-for="(text, key) in part.options"

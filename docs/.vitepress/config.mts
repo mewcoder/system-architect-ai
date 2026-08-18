@@ -35,7 +35,112 @@ export default defineConfig({
           items: [
             { text: '总览', link: '/general/' },
             {
-              text: '考点',
+              text: '系统架构设计',
+              collapsed: false,
+              items: [
+                {
+                  text: '知识',
+                  collapsed: true,
+                  items: [
+                    { text: '总览', link: '/general/knowledge/architecture' },
+                    { text: '文档 1：架构基础与风格', link: '/general/knowledge/architecture/foundation-style' },
+                    { text: '文档 2：分布式服务与质量', link: '/general/knowledge/architecture/distributed-quality' },
+                    { text: '文档 3：架构开发与领域架构', link: '/general/knowledge/architecture/development-domain' }
+                  ]
+                },
+                {
+                  text: '真题',
+                  collapsed: true,
+                  items: [
+                    { text: '系统架构设计', link: '/general/exams/architecture' }
+                  ]
+                }
+              ]
+            },
+            {
+              text: '软件工程',
+              collapsed: false,
+              items: [
+                {
+                  text: '知识',
+                  collapsed: true,
+                  items: [
+                    { text: '总览', link: '/general/knowledge/software' },
+                    { text: '文档 1：开发过程、需求与分析', link: '/general/knowledge/software/process-analysis' },
+                    { text: '文档 2：设计、模式与构件复用', link: '/general/knowledge/software/design-reuse' },
+                    { text: '文档 3：测试、质量与维护', link: '/general/knowledge/software/testing-maintenance' }
+                  ]
+                },
+                {
+                  text: '真题',
+                  collapsed: true,
+                  items: [
+                    { text: '软件工程', link: '/general/exams/software' },
+                    { text: '系统分析与设计', link: '/general/exams/analysis' },
+                    { text: '软件测试', link: '/general/exams/software-testing' },
+                    { text: '软件可靠性', link: '/general/exams/reliability' },
+                    { text: '系统运行与维护', link: '/general/exams/maintenance' }
+                  ]
+                }
+              ]
+            },
+            {
+              text: '计算机知识',
+              collapsed: false,
+              items: [
+                {
+                  text: '知识',
+                  collapsed: true,
+                  items: [
+                    { text: '操作系统', link: '/general/knowledge/os' },
+                    { text: '计算机网络', link: '/general/knowledge/network' },
+                    { text: '数据库系统', link: '/general/knowledge/database' },
+                    { text: '信息安全', link: '/general/knowledge/security' },
+                    { text: '计算机组成原理', link: '/general/knowledge/hardware-embedded' }
+                  ]
+                },
+                {
+                  text: '真题',
+                  collapsed: true,
+                  items: [
+                    { text: '操作系统', link: '/general/exams/os' },
+                    { text: '计算机网络', link: '/general/exams/network' },
+                    { text: '数据库系统', link: '/general/exams/database' },
+                    { text: '信息安全', link: '/general/exams/security' },
+                    { text: '计算机组成原理', link: '/general/exams/hardware-embedded' }
+                  ]
+                }
+              ]
+            },
+            {
+              text: '其他专题',
+              collapsed: false,
+              items: [
+                {
+                  text: '知识',
+                  collapsed: true,
+                  items: [
+                    { text: '项目管理', link: '/general/knowledge/project' },
+                    { text: '企业信息化战略', link: '/general/knowledge/informatization' },
+                    { text: '知识产权', link: '/general/knowledge/property' },
+                    { text: '数学与经济管理', link: '/general/knowledge/math' }
+                  ]
+                },
+                {
+                  text: '真题',
+                  collapsed: true,
+                  items: [
+                    { text: '项目管理', link: '/general/exams/project' },
+                    { text: '企业信息化战略', link: '/general/exams/informatization' },
+                    { text: '知识产权', link: '/general/exams/property' },
+                    { text: '数学与经济管理', link: '/general/exams/math' },
+                    { text: '专业英语', link: '/general/exams/english' }
+                  ]
+                }
+              ]
+            },
+            {
+              text: '考点分析',
               collapsed: false,
               items: [
                 { text: '总览', link: '/general/points/' },
@@ -43,31 +148,6 @@ export default defineConfig({
                 { text: '202511', link: '/general/points/202511' },
                 { text: '202505', link: '/general/points/202505' },
                 { text: '202411', link: '/general/points/202411' }
-              ]
-            },
-            {
-              text: '知识',
-              collapsed: false,
-              items: [
-                { text: '总览', link: '/general/knowledge/' },
-                { text: '计算机系统', link: '/general/knowledge/system' },
-                { text: '软件工程', link: '/general/knowledge/software' },
-                { text: '系统架构设计', link: '/general/knowledge/architecture' },
-                { text: '信息化', link: '/general/knowledge/informatization' },
-                { text: '信息安全', link: '/general/knowledge/security' },
-                { text: '知识产权', link: '/general/knowledge/property' },
-                { text: '软件可靠性', link: '/general/knowledge/reliability' }
-              ]
-            },
-            {
-              text: '真题',
-              collapsed: false,
-              items: [
-                { text: '总览', link: '/general/exams/' },
-                { text: '知识产权', link: '/general/exams/property' },
-                { text: '信息化', link: '/general/exams/informatization' },
-                { text: '信息安全', link: '/general/exams/security' },
-                { text: '软件可靠性', link: '/general/exams/reliability' }
               ]
             }
           ]

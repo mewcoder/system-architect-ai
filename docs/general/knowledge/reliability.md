@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import QuestionBank from '../../.vitepress/theme/QuestionBank.vue'
-import questionBank from '../../data/question-banks/软件可靠性.json'
+import questionBank from '../../data/question-banks/reliability.json'
 
 function questionsFor(keys: string[]) {
   const selected = new Set(keys)

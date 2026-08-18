@@ -1,6 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import ExamPointAnalysis from './ExamPointAnalysis.vue'
 import ExamTimeline from './ExamTimeline.vue'
+import GeneralOverview from './GeneralOverview.vue'
 import Home from './Home.vue'
 import Layout from './Layout.vue'
 import QuestionBank from './QuestionBank.vue'
@@ -13,6 +14,7 @@ export default {
   enhanceApp({ app }) {
     app.component('ExamPointAnalysis', ExamPointAnalysis)
     app.component('ExamTimeline', ExamTimeline)
+    app.component('GeneralOverview', GeneralOverview)
     app.component('ArchitectHome', Home)
     app.component('QuestionBank', QuestionBank)
     app.component('ScoreDonut', ScoreDonut)

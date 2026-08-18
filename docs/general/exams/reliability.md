@@ -1,6 +1,6 @@
 <script setup>
 import QuestionBank from '../../.vitepress/theme/QuestionBank.vue'
-import questionBank from '../../data/question-banks/软件可靠性.json'
+import questionBank from '../../data/question-banks/reliability.json'
 </script>
 
 # 软件可靠性

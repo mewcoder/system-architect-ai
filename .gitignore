@@ -11,3 +11,6 @@ local/
 temp/
 
 __pycache__/
+
+# 本机 Codex 工作区规则，不提交仓库
+AGENTS.local.md
