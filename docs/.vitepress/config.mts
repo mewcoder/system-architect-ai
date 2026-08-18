@@ -55,7 +55,8 @@ export default defineConfig({
                 { text: '系统架构设计', link: '/general/knowledge/architecture' },
                 { text: '信息化', link: '/general/knowledge/informatization' },
                 { text: '信息安全', link: '/general/knowledge/security' },
-                { text: '知识产权', link: '/general/knowledge/property' }
+                { text: '知识产权', link: '/general/knowledge/property' },
+                { text: '软件可靠性', link: '/general/knowledge/reliability' }
               ]
             },
             {
@@ -65,7 +66,8 @@ export default defineConfig({
                 { text: '总览', link: '/general/exams/' },
                 { text: '知识产权', link: '/general/exams/property' },
                 { text: '信息化', link: '/general/exams/informatization' },
-                { text: '信息安全', link: '/general/exams/security' }
+                { text: '信息安全', link: '/general/exams/security' },
+                { text: '软件可靠性', link: '/general/exams/reliability' }
               ]
             }
           ]
