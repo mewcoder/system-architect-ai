@@ -150,16 +150,22 @@ const bankRowTotal = computed(() => rows.value.reduce((total, row) => total + ro
 const maxRecentCount = computed(() => Math.max(...rows.value.map((row) => row.recentCount), 1))
 const maxTotalCount = computed(() => Math.max(...rows.value.map((row) => row.totalCount), 1))
 
-function percentage(value: number, total: number) {
-  return total ? `${((value / total) * 100).toFixed(1)}%` : '—'
-}
-
 function barWidth(value: number, max: number) {
   return `${(value / max) * 100}%`
 }
 
 function sectionHref(slug: string) {
   return `${props.linkBase ?? './'}${slug}`
+}
+
+function rowHref(row: Chapter) {
+  const slug = props.view === 'knowledge' ? row.knowledgeSlug : row.examSlug
+  return slug ? sectionHref(slug) : ''
+}
+
+function rowStatus(row: Chapter) {
+  if (props.view === 'knowledge') return row.knowledgeSlug ? (row.knowledgeNote ?? '已整理') : '待整理'
+  return row.examSlug ? '已收录' : '待补充'
 }
 </script>
 
@@ -170,84 +176,56 @@ function sectionHref(slug: string) {
         <p class="chapter-overview-eyebrow">完整模块目录</p>
         <h2>章节题量对照</h2>
       </div>
-      <p>
-        共列出 {{ rows.length }} 个模块；总数和近 4 场数量都直接来自各模块 JSON。
-      </p>
+      <p>共列出 {{ rows.length }} 个模块；总数和近 4 场数量都直接来自各模块 JSON。</p>
     </div>
 
     <div class="chapter-overview-summary" aria-label="统计小结">
-      <div class="chapter-overview-summary-item">
-        <strong>{{ allQuestionTotal }}</strong>
-        <span>真题总数（按题号）</span>
-      </div>
-      <div class="chapter-overview-summary-item">
-        <strong>{{ recentTotal }}</strong>
-        <span>近 4 场题量</span>
-      </div>
-      <div class="chapter-overview-summary-item">
-        <strong>{{ bankRowTotal }}</strong>
-        <span>原始记录（含分值）</span>
-      </div>
+      <div class="chapter-overview-summary-item"><strong>{{ allQuestionTotal }}</strong><span>真题总数（按题号）</span></div>
+      <div class="chapter-overview-summary-item"><strong>{{ recentTotal }}</strong><span>近 4 场题量</span></div>
+      <div class="chapter-overview-summary-item"><strong>{{ bankRowTotal }}</strong><span>原始记录（含分值）</span></div>
     </div>
 
     <div class="chapter-overview-table-wrap">
       <table class="chapter-overview-table">
+        <colgroup>
+          <col class="chapter-overview-table-col-index">
+          <col class="chapter-overview-table-col-module">
+          <col class="chapter-overview-table-col-total">
+          <col class="chapter-overview-table-col-recent">
+          <col class="chapter-overview-table-col-action">
+        </colgroup>
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">章节</th>
-            <th scope="col">真题总数</th>
+            <th scope="col">模块</th>
+            <th scope="col">全部真题</th>
             <th scope="col">近 4 场题量</th>
-            <th scope="col">页面状态</th>
+            <th scope="col"><span class="sr-only">操作</span></th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(row, index) in rows" :key="row.id">
+          <tr v-for="(row, index) in rows" :key="row.id" :class="{ 'is-child': row.depth > 0 }">
             <td class="chapter-overview-index">{{ String(index + 1).padStart(2, '0') }}</td>
-            <th scope="row">
-              <a v-if="props.view === 'knowledge' && row.knowledgeSlug" :href="sectionHref(row.knowledgeSlug)">
-                <span class="chapter-overview-label" :style="{ paddingLeft: `${row.depth * 18}px` }">{{ row.label }}</span>
+            <th scope="row" class="chapter-overview-module">
+              <a v-if="rowHref(row)" :href="rowHref(row)">
+                <span :style="{ paddingLeft: `${row.depth * 18}px` }">{{ row.label }}</span>
+                <small>{{ rowStatus(row) }}</small>
               </a>
-              <a v-else-if="props.view === 'exams' && row.examSlug" :href="sectionHref(row.examSlug)">
-                <span class="chapter-overview-label" :style="{ paddingLeft: `${row.depth * 18}px` }">{{ row.label }}</span>
-              </a>
-              <span v-else class="chapter-overview-label" :style="{ paddingLeft: `${row.depth * 18}px` }">{{ row.label }}</span>
+              <span v-else :style="{ paddingLeft: `${row.depth * 18}px` }">
+                {{ row.label }}<small>{{ rowStatus(row) }}</small>
+              </span>
             </th>
-            <td>
-              <div class="chapter-overview-count">
-                <strong>{{ row.totalCount }}</strong>
-              </div>
-              <span v-if="row.totalCount" class="chapter-overview-bar">
-                <i :style="{ width: barWidth(row.totalCount, maxTotalCount) }"></i>
-              </span>
+            <td class="chapter-overview-total">
+              <strong>{{ row.totalCount }}</strong><span>题</span>
+              <i><b :style="{ width: barWidth(row.totalCount, maxTotalCount) }"></b></i>
             </td>
-            <td>
-              <div class="chapter-overview-count">
-                <strong>{{ row.recentCount }}</strong>
-                <span v-if="row.recentCount" class="chapter-overview-percent">
-                  {{ percentage(row.recentCount, recentTotal) }}
-                </span>
-              </div>
-              <span v-if="row.recentCount" class="chapter-overview-bar">
-                <i :style="{ width: barWidth(row.recentCount, maxRecentCount) }"></i>
-              </span>
+            <td class="chapter-overview-recent">
+              <strong>{{ row.recentCount }}</strong><span>题</span>
+              <i><b :style="{ width: barWidth(row.recentCount, maxRecentCount) }"></b></i>
             </td>
-            <td>
-              <a
-                v-if="props.view === 'knowledge' && row.knowledgeSlug"
-                class="chapter-overview-status is-ready"
-                :href="sectionHref(row.knowledgeSlug)"
-              >
-                {{ row.knowledgeNote ?? '已整理' }}
-              </a>
-              <a
-                v-else-if="props.view === 'exams' && row.examSlug"
-                class="chapter-overview-status is-ready"
-                :href="sectionHref(row.examSlug)"
-              >
-                已收录
-              </a>
-              <span v-else class="chapter-overview-status">{{ props.view === 'knowledge' ? '待整理' : '待补充' }}</span>
+            <td class="chapter-overview-action">
+              <a v-if="rowHref(row)" :href="rowHref(row)">进入 <span aria-hidden="true">→</span></a>
+              <span v-else>待整理</span>
             </td>
           </tr>
         </tbody>
@@ -258,26 +236,23 @@ function sectionHref(slug: string) {
       真题总数从 16 个模块 JSON 中按“考试批次 + 题号”统计；近 4 场从同一批 JSON 中筛选 {{ recentExamLabels.join('、') }}，所以近 4 场不会再叠加到总数里。模块记录共 {{ bankRowTotal }} 条，同一道题的不同分值会拆成多条记录，但统计题量只算一次。
     </p>
 
-    <div v-if="duplicateGroups.length" class="chapter-overview-duplicates">
-      <div class="chapter-overview-duplicates-heading">
-        <div>
-          <p class="chapter-overview-eyebrow">待判断，不删除</p>
-          <h3>同一大章内，同考试、同题号、不同分类</h3>
-        </div>
+    <details v-if="duplicateGroups.length" class="chapter-overview-duplicates">
+      <summary>
+        <span><b>数据校对记录</b><small>同一大章内，同考试、同题号、不同分类</small></span>
+        <strong>{{ duplicateGroups.length }} 组</strong>
+      </summary>
+      <div class="chapter-overview-duplicates-body">
         <p>下面记录在 JSON 中全部保留；总数统计按题号只计一次，避免页面重复出现。</p>
+        <ul class="chapter-overview-duplicate-list">
+          <li v-for="group in duplicateGroups" :key="`${group.chapter}-${group.exam}-${group.questionNo}`">
+            <div class="chapter-overview-duplicate-title">{{ group.chapter }} · {{ group.exam }} · 第 {{ group.questionNo }} 题</div>
+            <div v-for="record in group.records" :key="record.category" class="chapter-overview-duplicate-record">
+              <strong>{{ record.category }}</strong><span>保留 {{ record.rowCount }} 条记录</span>
+              <p>{{ record.stem }}</p>
+            </div>
+          </li>
+        </ul>
       </div>
-      <ul class="chapter-overview-duplicate-list">
-        <li v-for="group in duplicateGroups" :key="`${group.chapter}-${group.exam}-${group.questionNo}`">
-          <div class="chapter-overview-duplicate-title">
-            {{ group.chapter }} · {{ group.exam }} · 第 {{ group.questionNo }} 题
-          </div>
-          <div v-for="record in group.records" :key="record.category" class="chapter-overview-duplicate-record">
-            <strong>{{ record.category }}</strong>
-            <span>保留 {{ record.rowCount }} 条记录</span>
-            <p>{{ record.stem }}</p>
-          </div>
-        </li>
-      </ul>
-    </div>
+    </details>
   </section>
 </template>
