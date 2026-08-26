@@ -37,7 +37,7 @@ const styleQuestions = questionsForCategories(['软件架构风格'])
 <details>
 <summary>相关真题：14 题</summary>
 
-<QuestionBank :questions="foundationQuestions" compact />
+<QuestionBank :questions="foundationQuestions" compact hide-categories />
 
 </details>
 
@@ -59,7 +59,7 @@ const styleQuestions = questionsForCategories(['软件架构风格'])
 <details>
 <summary>相关真题：45 题</summary>
 
-<QuestionBank :questions="styleQuestions" compact />
+<QuestionBank :questions="styleQuestions" compact hide-categories />
 
 </details>
 
@@ -70,4 +70,3 @@ const styleQuestions = questionsForCategories(['软件架构风格'])
 | 架构基础与表达 | 14 | 23 |
 | 软件架构风格 | 45 | 62 |
 | **合计** | **59** | **85** |
-

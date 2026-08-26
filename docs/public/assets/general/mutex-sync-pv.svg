@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-labelledby="title desc">
+  <title id="title">互斥与同步的 P/V 用法</title>
+  <desc id="desc">左侧互斥：信号量初值为 1，进程 A 执行 P、进入临界区、执行 V；进程 B 的 P 被挡住等待。右侧同步：信号量初值为 0，进程 A 做完后 V 通知，进程 B 开始前 P 等待。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f4943"/>
+    </marker>
+    <style>
+      .box { fill: #fffdf9; stroke: #4f4943; stroke-width: 2.5; }
+      .crit { fill: #f4efe8; stroke: #4f4943; stroke-width: 2.5; }
+      .label { fill: #2f2b27; font: 700 15px system-ui, sans-serif; text-anchor: middle; }
+      .title { fill: #2f2b27; font: 700 18px system-ui, sans-serif; text-anchor: middle; }
+      .sub { fill: #514a44; font: 13.5px system-ui, sans-serif; text-anchor: middle; }
+      .who { fill: #514a44; font: 700 15px system-ui, sans-serif; text-anchor: middle; }
+      .flow { fill: none; stroke: #4f4943; stroke-linecap: round; stroke-width: 2.5; marker-end: url(#arrow); }
+      .wait { fill: none; stroke: #8a8177; stroke-linecap: round; stroke-width: 2; stroke-dasharray: 6 5; marker-end: url(#arrow); }
+      .divider { stroke: #cfc5b9; stroke-width: 1.5; }
+      @media (prefers-color-scheme: dark) {
+        .box { fill: #292622; stroke: #d2c7bb; }
+        .crit { fill: #211e1b; stroke: #d2c7bb; }
+        .label { fill: #f1e9df; }
+        .title { fill: #f1e9df; }
+        .sub { fill: #d8cdc1; }
+        .who { fill: #d8cdc1; }
+        .flow { stroke: #d2c7bb; }
+        .wait { stroke: #8f867b; }
+        .divider { stroke: #55504a; }
+        #arrow path { fill: #d2c7bb; }
+      }
+    </style>
+  </defs>
+
+  <text class="title" x="190" y="42">互斥：不能同时做</text>
+  <text class="sub" x="190" y="68">信号量初值 1</text>
+
+  <text class="who" x="36" y="116">A</text>
+  <rect class="box" x="62" y="88" width="52" height="44" rx="10"/>
+  <text class="label" x="88" y="117">P</text>
+  <path class="flow" d="M 114 110 L 140 110"/>
+  <rect class="crit" x="144" y="88" width="120" height="44" rx="10"/>
+  <text class="label" x="204" y="117">临界区</text>
+  <path class="flow" d="M 264 110 L 290 110"/>
+  <rect class="box" x="294" y="88" width="52" height="44" rx="10"/>
+  <text class="label" x="320" y="117">V</text>
+
+  <text class="who" x="36" y="198">B</text>
+  <rect class="box" x="62" y="170" width="52" height="44" rx="10"/>
+  <text class="label" x="88" y="199">P</text>
+  <path class="wait" d="M 114 192 C 160 192, 186 172, 199 138"/>
+  <text class="sub" x="150" y="180">进不去</text>
+  <text class="sub" x="190" y="248">A 执行 V 之后 B 才能进</text>
+
+  <line class="divider" x1="380" y1="26" x2="380" y2="270"/>
+
+  <text class="title" x="572" y="42">同步：必须有先后</text>
+  <text class="sub" x="572" y="68">信号量初值 0</text>
+
+  <text class="who" x="404" y="116">A</text>
+  <rect class="box" x="430" y="88" width="110" height="44" rx="10"/>
+  <text class="label" x="485" y="117">做事</text>
+  <path class="flow" d="M 540 110 L 566 110"/>
+  <rect class="box" x="570" y="88" width="72" height="44" rx="10"/>
+  <text class="label" x="606" y="117">V(S)</text>
+
+  <path class="flow" d="M 606 136 C 606 178, 520 168, 468 184"/>
+  <text class="sub" x="600" y="176">做完通知</text>
+
+  <text class="who" x="404" y="222">B</text>
+  <rect class="box" x="430" y="194" width="72" height="44" rx="10"/>
+  <text class="label" x="466" y="223">P(S)</text>
+  <path class="flow" d="M 502 216 L 528 216"/>
+  <rect class="box" x="532" y="194" width="110" height="44" rx="10"/>
+  <text class="label" x="587" y="223">做事</text>
+</svg>

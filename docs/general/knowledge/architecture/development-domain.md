@@ -32,7 +32,7 @@ const domainQuestions = questionsForCategories([
 <details>
 <summary>相关真题：21 题</summary>
 
-<QuestionBank :questions="developmentQuestions" compact />
+<QuestionBank :questions="developmentQuestions" compact hide-categories />
 
 </details>
 
@@ -53,7 +53,7 @@ const domainQuestions = questionsForCategories([
 <details>
 <summary>相关真题：32 题</summary>
 
-<QuestionBank :questions="domainQuestions" compact />
+<QuestionBank :questions="domainQuestions" compact hide-categories />
 
 </details>
 
@@ -64,4 +64,3 @@ const domainQuestions = questionsForCategories([
 | 架构开发与软件复用 | 21 | 37 |
 | 特定领域与智能架构 | 32 | 40 |
 | **合计** | **53** | **77** |
-

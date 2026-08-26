@@ -40,7 +40,7 @@ const qualityQuestions = questionsForCategories(['软件质量属性', '软件�
 <details>
 <summary>相关真题：23 题</summary>
 
-<QuestionBank :questions="distributedQuestions" compact />
+<QuestionBank :questions="distributedQuestions" compact hide-categories />
 
 </details>
 
@@ -62,7 +62,7 @@ const qualityQuestions = questionsForCategories(['软件质量属性', '软件�
 <details>
 <summary>相关真题：61 题</summary>
 
-<QuestionBank :questions="qualityQuestions" compact />
+<QuestionBank :questions="qualityQuestions" compact hide-categories />
 
 </details>
 
@@ -73,4 +73,3 @@ const qualityQuestions = questionsForCategories(['软件质量属性', '软件�
 | 分布式服务与平台架构 | 23 | 27 |
 | 质量属性与架构评估 | 61 | 118 |
 | **合计** | **84** | **145** |
-

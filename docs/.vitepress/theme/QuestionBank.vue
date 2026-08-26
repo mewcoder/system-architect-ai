@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
 import { withBase } from 'vitepress'
 
 type Question = {
@@ -14,6 +14,10 @@ type Question = {
   answer: string | null
   knowledge?: string | null
   explanation: string | null
+  extensions?: {
+    tags?: string[]
+    [key: string]: unknown
+  }
 }
 
 type QuestionGroup = {
@@ -29,15 +33,20 @@ type QuestionGroup = {
 const props = defineProps<{
   questions: Question[]
   compact?: boolean
+  hideCategories?: boolean
+  questionFlags?: Record<string, string>
   categoryChapters?: Record<string, string>
+  anchorPrefix?: string
 }>()
 
+const questionBankRoot = ref<HTMLElement | null>(null)
 const query = ref('')
 const examFilter = ref('all')
 const chapterFilter = ref('all')
 const categoryFilter = ref('all')
 const overviewMode = ref('category')
 const userAnswers = ref<Record<string, string>>({})
+const activeAnchor = ref('')
 
 const hasChapters = computed(() => Boolean(props.categoryChapters && Object.keys(props.categoryChapters).length))
 
@@ -62,6 +71,47 @@ const categories = computed(() => [
 
 function questionKey(question: Question) {
   return question.subject + '-' + question.exam + '-' + question.question_no
+}
+
+function questionAnchor(group: QuestionGroup) {
+  if (!props.anchorPrefix) return undefined
+  return `q-${props.anchorPrefix}-${group.exam}-${group.question_no}`
+}
+
+function revealHashTarget() {
+  const hash = decodeURIComponent(window.location.hash.slice(1))
+  activeAnchor.value = ''
+  if (!hash || !questionBankRoot.value) return
+
+  const target = document.getElementById(hash)
+  if (!target || !questionBankRoot.value.contains(target)) return
+  activeAnchor.value = hash
+
+  let ancestor = target.parentElement
+  while (ancestor) {
+    if (ancestor instanceof HTMLDetailsElement) ancestor.open = true
+    ancestor = ancestor.parentElement
+  }
+
+  nextTick(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }))
+}
+
+onMounted(() => {
+  window.addEventListener('hashchange', revealHashTarget)
+  revealHashTarget()
+})
+
+onBeforeUnmount(() => window.removeEventListener('hashchange', revealHashTarget))
+
+function questionFlag(group: QuestionGroup) {
+  return props.questionFlags?.[questionKey(group.parts[0])] ?? null
+}
+
+function questionTags(group: QuestionGroup) {
+  const tags = group.parts.flatMap((part) => part.extensions?.tags ?? [])
+  const fallback = questionFlag(group)
+  if (fallback) tags.push(fallback)
+  return Array.from(new Set(tags))
 }
 
 const categoryStats = computed(() => {
@@ -212,10 +262,17 @@ function renderMarkdown(value: string | null) {
     .replace(/\n\n/g, '<br><br>')
     .replace(/\n/g, '<br>')
 }
+
+function sameQuestionStem(left: string, right: string) {
+  const normalize = (value: string) => value
+    .replace(/!\[[^\]]*\]\([^)]+\)/g, '')
+    .replace(/\s+/g, '')
+  return normalize(left) === normalize(right)
+}
 </script>
 
 <template>
-<div class="question-bank">
+<div ref="questionBankRoot" class="question-bank">
   <div v-if="!compact" class="question-bank-overview">
     <div class="question-bank-overview-head">
       <div class="question-bank-tabs" role="tablist" aria-label="题目统计">
@@ -293,13 +350,22 @@ function renderMarkdown(value: string | null) {
   </div>
 
   <div class="question-bank-list">
-    <article v-for="group in groupedQuestions" :key="group.key" class="question-card">
-      <div class="question-card-meta">
+    <article
+      v-for="group in groupedQuestions"
+      :id="questionAnchor(group)"
+      :key="group.key"
+      class="question-card"
+      :class="{ 'is-anchor-target': questionAnchor(group) === activeAnchor }"
+    >
+      <div class="question-card-meta" :class="{ 'is-categories-hidden': hideCategories }">
         <span>
           {{ examLabel(group.exam) }} - {{ group.question_no }} 题
         </span>
-        <span v-if="hasChapters">{{ Array.from(new Set(group.categories.map(chapterForCategory))).join('、') }}</span>
-        <span v-for="category in group.categories" :key="category">{{ category }}</span>
+        <span v-for="tag in questionTags(group)" :key="tag" class="question-card-flag">{{ tag }}</span>
+        <span v-if="hasChapters && !hideCategories">{{ Array.from(new Set(group.categories.map(chapterForCategory))).join('、') }}</span>
+        <template v-if="!hideCategories">
+          <span v-for="category in group.categories" :key="category">{{ category }}</span>
+        </template>
       </div>
       <div class="question-stem" v-html="renderMarkdown(group.stem)"></div>
       <div
@@ -308,10 +374,10 @@ function renderMarkdown(value: string | null) {
         class="question-part"
       >
         <div v-if="group.parts.length > 1" class="question-part-label">
-          {{ new Set(group.parts.map((item) => item.part_no)).size > 1 ? `分值 ${part.part_no}` : `记录 ${partIndex + 1}` }}
+          {{ new Set(group.parts.map((item) => item.part_no)).size > 1 ? `问题（${part.part_no}）` : `记录 ${partIndex + 1}` }}
         </div>
         <div
-          v-if="group.parts.length > 1 && part.stem !== group.stem"
+          v-if="group.parts.length > 1 && !sameQuestionStem(part.stem, group.stem)"
           class="question-part-stem"
           v-html="renderMarkdown(part.stem)"
         ></div>

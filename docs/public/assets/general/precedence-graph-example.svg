@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 390" role="img" aria-labelledby="title desc">
+  <title id="title">前趋图示例</title>
+  <desc id="desc">五个任务的前趋图：A 和 B 可以并行执行，C 需要等待 A、B，D 需要等待 B，E 需要等待 C、D。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8.5" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6b6259"/>
+    </marker>
+    <style>
+      .node { fill: #fffdf9; stroke: #6b6259; stroke-width: 2.5; }
+      .node-label { fill: #302c28; font: 700 22px system-ui, sans-serif; text-anchor: middle; dominant-baseline: middle; }
+      .edge { fill: none; stroke: #6b6259; stroke-linecap: round; stroke-width: 2.5; marker-end: url(#arrow); }
+      @media (prefers-color-scheme: dark) {
+        .node { fill: #292622; stroke: #d2c7bb; }
+        .node-label { fill: #f1e9df; }
+        .edge { stroke: #d2c7bb; }
+        #arrow path { fill: #d2c7bb; }
+      }
+    </style>
+  </defs>
+
+  <!-- A、B 可并行；C、D 分别等待前驱；E 汇合结束。 -->
+  <path class="edge" d="M 154 99 L 320 99"/>
+  <path class="edge" d="M 147 272 L 327 118"/>
+  <path class="edge" d="M 154 291 L 320 291"/>
+  <path class="edge" d="M 378 110 L 562 184"/>
+  <path class="edge" d="M 378 280 L 562 206"/>
+
+  <g aria-label="任务 A">
+    <circle class="node" cx="124" cy="99" r="30"/>
+    <text class="node-label" x="124" y="99">A</text>
+  </g>
+  <g aria-label="任务 B">
+    <circle class="node" cx="124" cy="291" r="30"/>
+    <text class="node-label" x="124" y="291">B</text>
+  </g>
+  <g aria-label="任务 C">
+    <circle class="node" cx="350" cy="99" r="30"/>
+    <text class="node-label" x="350" y="99">C</text>
+  </g>
+  <g aria-label="任务 D">
+    <circle class="node" cx="350" cy="291" r="30"/>
+    <text class="node-label" x="350" y="291">D</text>
+  </g>
+  <g aria-label="任务 E">
+    <circle class="node" cx="590" cy="195" r="30"/>
+    <text class="node-label" x="590" y="195">E</text>
+  </g>
+
+</svg>

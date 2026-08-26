@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 460" role="img" aria-labelledby="title desc">
+  <title id="title">进程三态模型</title>
+  <desc id="desc">运行态、就绪态和阻塞态呈环形排列。就绪态经调度进入运行态，运行态因时间片用尽或被抢占返回就绪态，因等待事件进入阻塞态，阻塞态在事件完成后进入就绪态。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f4943"/>
+    </marker>
+    <style>
+      .state { fill: #fffdf9; stroke: #4f4943; stroke-width: 2.5; }
+      .state-label { fill: #2f2b27; font: 700 23px system-ui, sans-serif; text-anchor: middle; }
+      .transition { fill: none; stroke: #4f4943; stroke-linecap: round; stroke-width: 2.5; marker-end: url(#arrow); }
+      .transition-label { fill: #514a44; font: 17px system-ui, sans-serif; text-anchor: middle; }
+      @media (prefers-color-scheme: dark) {
+        .state { fill: #292622; stroke: #d2c7bb; }
+        .state-label { fill: #f1e9df; }
+        .transition { stroke: #d2c7bb; }
+        .transition-label { fill: #d8cdc1; }
+        #arrow path { fill: #d2c7bb; }
+      }
+    </style>
+  </defs>
+
+  <circle class="state" cx="320" cy="78" r="52"/>
+  <text class="state-label" x="320" y="87">运行</text>
+
+  <circle class="state" cx="120" cy="320" r="52"/>
+  <text class="state-label" x="120" y="329">阻塞</text>
+
+  <circle class="state" cx="520" cy="320" r="52"/>
+  <text class="state-label" x="520" y="329">就绪</text>
+
+  <path class="transition" d="M 515 268 C 508 190, 444 112, 371 92"/>
+  <text class="transition-label" x="477" y="171">被调度</text>
+
+  <path class="transition" d="M 321 130 C 324 213, 393 286, 468 309"/>
+  <text class="transition-label" x="376" y="226">
+    <tspan x="376" dy="0">时间片用尽</tspan>
+    <tspan x="376" dy="23">或被抢占</tspan>
+  </text>
+
+  <path class="transition" d="M 269 91 C 194 112, 130 190, 124 268"/>
+  <text class="transition-label" x="161" y="171">等待事件</text>
+
+  <path class="transition" d="M 163 349 C 258 408, 382 408, 477 349"/>
+  <text class="transition-label" x="320" y="426">事件完成</text>
+</svg>

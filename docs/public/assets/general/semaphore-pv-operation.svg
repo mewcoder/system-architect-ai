@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 260" role="img" aria-labelledby="title desc">
+  <title id="title">信号量与其等待队列</title>
+  <desc id="desc">信号量包含一个表示资源数量的整型值和一个等待队列指针；指针指向由被阻塞进程的 PCB 连成的等待队列，队尾为空。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f4943"/>
+    </marker>
+    <style>
+      .box { fill: #fffdf9; stroke: #4f4943; stroke-width: 2.5; }
+      .cell { fill: #f4efe8; stroke: #4f4943; stroke-width: 2; }
+      .pcb { fill: #fffdf9; stroke: #4f4943; stroke-width: 2.5; }
+      .label { fill: #2f2b27; font: 700 21px system-ui, sans-serif; text-anchor: middle; }
+      .sublabel { fill: #514a44; font: 16px system-ui, sans-serif; text-anchor: middle; }
+      .flow { fill: none; stroke: #4f4943; stroke-linecap: round; stroke-width: 2.5; marker-end: url(#arrow); }
+      .null { fill: none; stroke: #4f4943; stroke-linecap: round; stroke-width: 2.5; }
+      @media (prefers-color-scheme: dark) {
+        .box { fill: #292622; stroke: #d2c7bb; }
+        .cell { fill: #211e1b; stroke: #d2c7bb; }
+        .pcb { fill: #292622; stroke: #d2c7bb; }
+        .label { fill: #f1e9df; }
+        .sublabel { fill: #d8cdc1; }
+        .flow { stroke: #d2c7bb; }
+        .null { stroke: #d2c7bb; }
+        #arrow path { fill: #d2c7bb; }
+      }
+    </style>
+  </defs>
+
+  <rect class="box" x="50" y="56" width="210" height="130" rx="12"/>
+  <text class="label" x="155" y="88">信号量 S</text>
+
+  <rect class="cell" x="78" y="108" width="90" height="52" rx="8"/>
+  <text class="label" x="123" y="142">值</text>
+
+  <rect class="cell" x="168" y="108" width="66" height="52" rx="8"/>
+  <text class="label" x="201" y="142">L</text>
+
+  <text class="sublabel" x="123" y="188">初值＝资源总数</text>
+  <text class="sublabel" x="201" y="188">队列指针</text>
+
+  <path class="flow" d="M 234 134 L 308 134"/>
+
+  <rect class="pcb" x="312" y="110" width="104" height="48" rx="10"/>
+  <text class="label" x="364" y="142">PCB</text>
+
+  <path class="flow" d="M 416 134 L 452 134"/>
+
+  <rect class="pcb" x="456" y="110" width="104" height="48" rx="10"/>
+  <text class="label" x="508" y="142">PCB</text>
+
+  <path class="flow" d="M 560 134 L 596 134"/>
+
+  <path class="null" d="M 606 122 L 626 146 M 626 122 L 606 146"/>
+
+  <text class="sublabel" x="438" y="188">正在等待该信号量的进程（阻塞态），先进先出唤醒</text>
+</svg>

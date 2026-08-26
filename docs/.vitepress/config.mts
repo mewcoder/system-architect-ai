@@ -35,17 +35,38 @@ export default defineConfig({
           items: [
             { text: '总览', link: '/general/' },
             {
+              text: '计算机系统基础知识',
+              collapsed: false,
+              items: [
+                { text: '0 总览', link: '/general/chapters/computer-systems/0-overview' },
+                { text: '1 硬件与嵌入式', link: '/general/chapters/computer-systems/1-hardware' },
+                { text: '2 操作系统', link: '/general/chapters/computer-systems/2-operating-system' },
+                { text: '3 计算机网络', link: '/general/chapters/computer-systems/3-network' },
+                { text: '4 数据库系统', link: '/general/chapters/computer-systems/4-database' },
+                { text: '5 其他', link: '/general/chapters/computer-systems/5-other' }
+              ]
+            },
+            {
               text: '系统架构设计',
               collapsed: false,
               items: [
+                { text: '0 总览', link: '/general/knowledge/architecture' },
+                { text: '1 架构基础与 4+1 视图', link: '/general/knowledge/architecture/1-foundation' },
+                { text: '2 基于架构的软件开发（ABSD）', link: '/general/knowledge/architecture/2-absd' },
+                { text: '3 软件架构风格', link: '/general/knowledge/architecture/3-styles' },
+                { text: '4 软件质量属性', link: '/general/knowledge/architecture/4-quality-attributes' },
+                { text: '5 架构评估', link: '/general/knowledge/architecture/5-evaluation' },
+                { text: '6 软件架构复用', link: '/general/knowledge/architecture/6-reuse' },
+                { text: '7 特定领域软件架构（DSSA）', link: '/general/knowledge/architecture/7-dssa' },
+                { text: '8 微服务与分布式架构', link: '/general/knowledge/architecture/8-distributed-service' },
+                { text: '9 新技术架构', link: '/general/knowledge/architecture/9-new-architecture' },
                 {
-                  text: '知识',
+                  text: '既有合并文档',
                   collapsed: true,
                   items: [
-                    { text: '总览', link: '/general/knowledge/architecture' },
-                    { text: '文档 1：架构基础与风格', link: '/general/knowledge/architecture/foundation-style' },
-                    { text: '文档 2：分布式服务与质量', link: '/general/knowledge/architecture/distributed-quality' },
-                    { text: '文档 3：架构开发与领域架构', link: '/general/knowledge/architecture/development-domain' }
+                    { text: '架构基础与风格', link: '/general/knowledge/architecture/foundation-style' },
+                    { text: '分布式服务与质量', link: '/general/knowledge/architecture/distributed-quality' },
+                    { text: '架构开发与领域架构', link: '/general/knowledge/architecture/development-domain' }
                   ]
                 },
                 {
@@ -85,34 +106,6 @@ export default defineConfig({
               ]
             },
             {
-              text: '计算机知识',
-              collapsed: false,
-              items: [
-                {
-                  text: '知识',
-                  collapsed: true,
-                  items: [
-                    { text: '操作系统', link: '/general/knowledge/os' },
-                    { text: '计算机网络', link: '/general/knowledge/network' },
-                    { text: '数据库系统', link: '/general/knowledge/database' },
-                    { text: '信息安全', link: '/general/knowledge/security' },
-                    { text: '计算机组成原理', link: '/general/knowledge/hardware-embedded' }
-                  ]
-                },
-                {
-                  text: '真题',
-                  collapsed: true,
-                  items: [
-                    { text: '操作系统', link: '/general/exams/os' },
-                    { text: '计算机网络', link: '/general/exams/network' },
-                    { text: '数据库系统', link: '/general/exams/database' },
-                    { text: '信息安全', link: '/general/exams/security' },
-                    { text: '计算机组成原理', link: '/general/exams/hardware-embedded' }
-                  ]
-                }
-              ]
-            },
-            {
               text: '其他专题',
               collapsed: false,
               items: [
@@ -120,6 +113,7 @@ export default defineConfig({
                   text: '知识',
                   collapsed: true,
                   items: [
+                    { text: '信息安全', link: '/general/knowledge/security' },
                     { text: '项目管理', link: '/general/knowledge/project' },
                     { text: '企业信息化战略', link: '/general/knowledge/informatization' },
                     { text: '知识产权', link: '/general/knowledge/property' },
@@ -130,6 +124,7 @@ export default defineConfig({
                   text: '真题',
                   collapsed: true,
                   items: [
+                    { text: '信息安全', link: '/general/exams/security' },
                     { text: '项目管理', link: '/general/exams/project' },
                     { text: '企业信息化战略', link: '/general/exams/informatization' },
                     { text: '知识产权', link: '/general/exams/property' },
