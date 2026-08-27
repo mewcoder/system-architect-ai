@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import QuestionBank from '../../../.vitepress/theme/QuestionBank.vue'
-import { selectQuestions } from '../../../.vitepress/theme/questionBankUtils'
+import { selectQuestions, summarizeQuestionBank } from '../../../.vitepress/theme/questionBankUtils'
 import questionBank from '../../../data/question-banks/architecture.json'
 
 const evaluationQuestions = selectQuestions(questionBank.questions, [
@@ -38,9 +38,16 @@ const evaluationQuestions = selectQuestions(questionBank.questions, [
   '201411-38',
   '201311-34',
 ])
+
+const evaluationTrend = summarizeQuestionBank(evaluationQuestions)
 </script>
 
 # 架构评估
+
+> <strong>考试趋势：</strong>本章平均每年约<strong>{{ evaluationTrend.annualAverageLabel }} 分</strong>。
+>
+> - 架构评估题长期持续出现，近年仍有稳定记录，且部分年份会与软件质量属性合并考查，题量波动比单纯概念题更明显。
+> - ATAM、SAAM、CBAM 的定位，以及<strong>敏感点、权衡点、风险、效用树</strong>等概念是复习重点；做题时先判断评估依据和方法目标。
 
 架构评估是在系统开发前或架构决策阶段，依据<strong>质量目标和质量属性场景</strong>判断架构是否满足需求，并识别风险、敏感点和权衡点。它关注的是架构决策对系统质量的影响，不是检查功能代码是否已经全部实现。
 
@@ -59,6 +66,8 @@ const evaluationQuestions = selectQuestions(questionBank.questions, [
 - <strong>自底向上分析：</strong>从具体构件、构件关系和运行数据出发，归纳架构的实际特性，更接近实现层面的运行效率和资源表现；
 - <strong>基于场景的分析：</strong>从利益相关者目标和质量属性场景出发，分析架构是否支撑预期质量目标。
 
+对应真题：<a class="question-ref" href="#q-evaluation-202605-52">#2026.05-52</a><a class="question-ref" href="#q-evaluation-202605-58">#2026.05-58</a><a class="question-ref" href="#q-evaluation-202511-5">#2025.11-5</a><a class="question-ref" href="#q-evaluation-202511-6">#2025.11-6</a><a class="question-ref" href="#q-evaluation-202511-32">#2025.11-32</a><a class="question-ref" href="#q-evaluation-202505-49">#2025.05-49</a><a class="question-ref" href="#q-evaluation-202411-34">#2024.11-34</a><a class="question-ref" href="#q-evaluation-202411-62">#2024.11-62</a><a class="question-ref" href="#q-evaluation-202405-44">#2024.05-44</a><a class="question-ref" href="#q-evaluation-202111-43">#2021.11-43</a><a class="question-ref" href="#q-evaluation-202011-25">#2020.11-25</a><a class="question-ref" href="#q-evaluation-201411-37">#2014.11-37</a>
+
 ## 2. 常见评估方法
 
 按评估依据，架构评估通常分为三类：
@@ -75,6 +84,8 @@ const evaluationQuestions = selectQuestions(questionBank.questions, [
 - <strong>SAABNet：</strong>基于贝叶斯信念网络进行定性架构评估，依靠概率推理分析架构属性。
 
 按关键词区分：<strong>SAAM 看场景和可修改性，ATAM 看多质量属性权衡，CBAM 看成本收益，SASAM 看静态结构，SAABNet 看贝叶斯推理</strong>。
+
+对应真题：<a class="question-ref" href="#q-evaluation-202605-53">#2026.05-53</a><a class="question-ref" href="#q-evaluation-202511-31">#2025.11-31</a><a class="question-ref" href="#q-evaluation-202405-46">#2024.05-46</a><a class="question-ref" href="#q-evaluation-202311-17">#2023.11-17</a><a class="question-ref" href="#q-evaluation-201811-33">#2018.11-33</a><a class="question-ref" href="#q-evaluation-201511-41">#2015.11-41</a><a class="question-ref" href="#q-evaluation-201411-38">#2014.11-38</a>
 
 ## 3. ATAM 重点
 
@@ -101,6 +112,8 @@ ATAM 设计之初重点关注的四种质量属性是<strong>性能、安全性�
 
 题库分类中有少量与质量属性、ABSD 或事件驱动交叉的题目，仍保留在下方真题区；正文只按架构评估主线整理。
 
+对应真题：<a class="question-ref" href="#q-evaluation-202511-36">#2025.11-36</a><a class="question-ref" href="#q-evaluation-202511-39">#2025.11-39</a><a class="question-ref" href="#q-evaluation-202411-21">#2024.11-21</a><a class="question-ref" href="#q-evaluation-202411-22">#2024.11-22</a><a class="question-ref" href="#q-evaluation-202411-50">#2024.11-50</a><a class="question-ref" href="#q-evaluation-202405-23">#2024.05-23</a><a class="question-ref" href="#q-evaluation-202311-28">#2023.11-28</a><a class="question-ref" href="#q-evaluation-202311-39">#2023.11-39</a><a class="question-ref" href="#q-evaluation-202211-48">#2022.11-48</a><a class="question-ref" href="#q-evaluation-202211-49">#2022.11-49</a><a class="question-ref" href="#q-evaluation-202211-52">#2022.11-52</a><a class="question-ref" href="#q-evaluation-202111-36">#2021.11-36</a><a class="question-ref" href="#q-evaluation-202111-42">#2021.11-42</a><a class="question-ref" href="#q-evaluation-201311-34">#2013.11-34</a>
+
 ## 历年真题
 
-<QuestionBank :questions="evaluationQuestions" compact hide-categories />
+<QuestionBank :questions="evaluationQuestions" anchor-prefix="evaluation" compact hide-categories />

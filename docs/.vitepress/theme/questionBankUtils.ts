@@ -9,6 +9,20 @@ function questionKey(question: QuestionSelection) {
   return `${question.exam}-${question.question_no}`
 }
 
+export function summarizeQuestionBank<T extends QuestionSelection>(questions: readonly T[]) {
+  const years = new Set(questions.map((question) => question.exam.slice(0, 4)))
+  const annualAverageValue = years.size
+    ? Math.round(questions.length / years.size * 10) / 10
+    : 0
+  const annualAverageLabel = Number.isInteger(annualAverageValue)
+    ? String(annualAverageValue)
+    : `${Math.floor(annualAverageValue)}～${Math.ceil(annualAverageValue)}`
+
+  return {
+    annualAverageLabel,
+  }
+}
+
 function sortQuestions<T extends QuestionSelection>(questions: T[]) {
   return questions.sort((a, b) =>
     b.exam.localeCompare(a.exam) ||

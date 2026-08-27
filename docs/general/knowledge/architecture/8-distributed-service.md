@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import QuestionBank from '../../../.vitepress/theme/QuestionBank.vue'
+import { summarizeQuestionBank } from '../../../.vitepress/theme/questionBankUtils'
 import questionBank from '../../../data/question-banks/architecture.json'
 
 function questionsForCategories(categories: string[]) {
@@ -26,9 +27,16 @@ const distributedServiceQuestions = questionsForCategories([
   '网格服务架构',
   'CDN 与反向代理'
 ])
+
+const distributedTrend = summarizeQuestionBank(distributedServiceQuestions)
 </script>
 
 # 微服务与分布式架构
+
+> <strong>考试趋势：</strong>本章平均每年约<strong>{{ distributedTrend.annualAverageLabel }} 分</strong>。
+>
+> - 2023 年之后分布式服务相关考查更活跃，近年主线集中在 REST、微服务、云计算与服务集成；早期的企业应用集成、中间件和 CDN 题目相对分散。
+> - 复习时优先围绕<strong>服务边界、状态与一致性、通信方式、服务发现、扩展和故障治理</strong>做比较，不要只背技术名称及优点清单。
 
 ## 1. 服务化架构
 
@@ -47,6 +55,8 @@ REST 以资源为中心，用 URI 标识资源，用 HTTP 方法表达操作，�
 
 SOAP 是 Web Service 的消息交互协议，重点在<strong>规范化消息封装和跨平台通信</strong>，不是服务注册或服务编排工具。WSDL 是服务描述语言，回答“服务能做什么、如何通信、在哪里访问”三个问题：描述操作、协议与数据格式，以及访问地址。UDDI 用于服务注册与发现；BPEL 则把多个服务组织、编排成业务流程。可按“SOAP 负责交互、WSDL 负责描述、UDDI 负责发现、BPEL 负责编排”记忆。
 
+对应真题：<a class="question-ref" href="#q-distributed-202505-33">#2025.05-33</a><a class="question-ref" href="#q-distributed-202411-18">#2024.11-18</a><a class="question-ref" href="#q-distributed-202411-46">#2024.11-46</a><a class="question-ref" href="#q-distributed-202405-19">#2024.05-19</a><a class="question-ref" href="#q-distributed-202405-45">#2024.05-45</a>
+
 ### SOA、ESB 与微服务
 
 SOA 面向企业级服务复用和异构系统整合，通常通过服务契约、注册发现和 ESB 统一支撑服务之间的路由、协议转换、消息格式适配与监控。ESB 的关键价值是<strong>让服务请求者不必直接依赖服务提供者的地址、协议和消息格式</strong>，从而实现松耦合；UDDI 解决的是发现问题，不能替代 ESB 的消息中介作用。
@@ -59,12 +69,7 @@ SOA 面向企业级服务复用和异构系统整合，通常通过服务契约�
 - <strong>超时</strong>用于限制远程调用的等待时间，避免线程或连接长期阻塞；它解决的是等待边界，不等于重试或熔断。
 - <strong>CQRS</strong>将读模型与写模型分离，便于分别优化读写负载，但多个模型同步可能带来数据延迟和最终一致性问题。
 
-<details>
-<summary>相关真题：21 道独立题 / 24 条记录</summary>
-
-<QuestionBank :questions="distributedServiceQuestions" compact hide-categories />
-
-</details>
+对应真题：<a class="question-ref" href="#q-distributed-202505-42">#2025.05-42</a><a class="question-ref" href="#q-distributed-202505-61">#2025.05-61</a><a class="question-ref" href="#q-distributed-202505-13">#2025.05-13</a><a class="question-ref" href="#q-distributed-202511-56">#2025.11-56</a><a class="question-ref" href="#q-distributed-202605-23">#2026.05-23</a><a class="question-ref" href="#q-distributed-202605-42">#2026.05-42</a><a class="question-ref" href="#q-distributed-202605-63">#2026.05-63</a><a class="question-ref" href="#q-distributed-202211-29">#2022.11-29</a><a class="question-ref" href="#q-distributed-201911-30">#2019.11-30</a><a class="question-ref" href="#q-distributed-201611-28">#2016.11-28</a>
 
 ## 2. 分布式平台与集成
 
@@ -76,12 +81,34 @@ SOA 面向企业级服务复用和异构系统整合，通常通过服务契约�
 
 企业应用集成（EAI）把不同应用的接口、数据和功能接入统一平台，常按自下而上的四层服务理解：<strong>通信服务、信息传递与转换服务、应用连接服务、流程控制服务</strong>。因此最高层是流程控制服务；数据格式转换属于信息传递与转换层，应用适配和连接属于应用连接层。
 
+对应真题：<a class="question-ref" href="#q-distributed-202211-12">#2022.11-12</a><a class="question-ref" href="#q-distributed-201911-16">#2019.11-16</a>
+
 ### 云计算与虚拟化
 
 云计算通过资源池化、按需使用和弹性伸缩提供计算资源，虚拟化是常见的基础支撑手段。KVM、Xen、Hyper-V 属于虚拟化技术；虚拟机监控器负责在物理资源上隔离和管理虚拟机。题目中的 LVS 是负载均衡技术，不属于虚拟化技术。判断云原生或云平台选项时，优先抓住<strong>资源池化、弹性、自动化和服务化交付</strong>，不要把任何分布式软件都归为云计算。
+
+对应真题：<a class="question-ref" href="#q-distributed-202511-29">#2025.11-29</a><a class="question-ref" href="#q-distributed-202405-52">#2024.05-52</a>
 
 ### CDN、反向代理与网格服务
 
 CDN 和反向代理的共同基础是<strong>缓存</strong>：代理节点代替源站接收请求，并尽量从靠近用户或请求入口的位置返回已有内容。CDN 更强调多节点、按地域就近分发静态或可缓存内容；反向代理更强调站在服务端前方统一接入、转发、缓存和隐藏源站。二者都可以改善访问性能，但 CDN 的核心是内容分发网络，不能简单等同于普通代理。
 
 网格服务把分散的计算、存储等异构资源抽象为标准化 Web Service，通过统一接口支持资源发布、发现、组合和跨域协同。OGSA 的考点落在<strong>标准化 Web Service、异构资源服务化和互操作</strong>，不是某一种具体硬件或单一资源调度算法。
+
+对应真题：<a class="question-ref" href="#q-distributed-202505-50">#2025.05-50</a><a class="question-ref" href="#q-distributed-202311-31">#2023.11-31</a>
+
+## 历年真题
+
+<details class="chapter-question-bank">
+<summary class="chapter-question-bank-summary">
+  <span class="chapter-question-bank-note">对应真题</span>
+  <span class="chapter-question-bank-action">
+    <span class="chapter-question-bank-expand-label">展开</span>
+    <span class="chapter-question-bank-collapse-label">收起</span>
+  </span>
+</summary>
+
+<div class="chapter-question-bank-body">
+  <QuestionBank :questions="distributedServiceQuestions" anchor-prefix="distributed" compact hide-categories />
+</div>
+</details>

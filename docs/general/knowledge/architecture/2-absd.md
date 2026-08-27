@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import QuestionBank from '../../../.vitepress/theme/QuestionBank.vue'
-import { selectQuestions } from '../../../.vitepress/theme/questionBankUtils'
+import { selectQuestions, summarizeQuestionBank } from '../../../.vitepress/theme/questionBankUtils'
 import questionBank from '../../../data/question-banks/architecture.json'
 
 const absdQuestions = selectQuestions(questionBank.questions, [
@@ -22,9 +22,16 @@ const absdQuestions = selectQuestions(questionBank.questions, [
   '201411-35',
   '201311-33',
 ])
+
+const absdTrend = summarizeQuestionBank(absdQuestions)
 </script>
 
 # 第3章第3小节——基于架构的软件开发
+
+> <strong>考试趋势：</strong>本章平均每年约<strong>{{ absdTrend.annualAverageLabel }} 分</strong>。
+>
+> - ABSD 是长期稳定考查的架构方法主线，题量会随年份波动，近年仍关注架构需求、设计、文档化、复审、实现和演化等活动。
+> - 复习时优先掌握<strong>六个活动的顺序、关键输出物和适用场景</strong>，并注意 ABSD 与架构描述、质量场景及 DSSA 的交叉辨析。
 
 ## 1. 基础概念
 
@@ -56,7 +63,7 @@ ABSD（Architecture-Based Software Design/Development，基于架构的软件设
 
 4+1 视图模型是“视角与视图”的一种具体模型。
 
-相关真题：4 题<a class="question-ref" href="#q-absd-202405-50">#2024.05-50</a><a class="question-ref" href="#q-absd-202011-24">#2020.11-24</a><a class="question-ref" href="#q-absd-201711-32">#2017.11-32</a><a class="question-ref" href="#q-absd-201511-32">#2015.11-32</a>
+相关真题：<a class="question-ref" href="#q-absd-202405-50">#2024.05-50</a><a class="question-ref" href="#q-absd-202311-40">#2023.11-40</a><a class="question-ref" href="#q-absd-202011-24">#2020.11-24</a><a class="question-ref" href="#q-absd-201711-32">#2017.11-32</a><a class="question-ref" href="#q-absd-201511-32">#2015.11-32</a>
 
 ## 3. 基于体系结构的开发模型
 

@@ -61,15 +61,6 @@ export default defineConfig({
                 { text: '8 微服务与分布式架构', link: '/general/knowledge/architecture/8-distributed-service' },
                 { text: '9 新技术架构', link: '/general/knowledge/architecture/9-new-architecture' },
                 {
-                  text: '既有合并文档',
-                  collapsed: true,
-                  items: [
-                    { text: '架构基础与风格', link: '/general/knowledge/architecture/foundation-style' },
-                    { text: '分布式服务与质量', link: '/general/knowledge/architecture/distributed-quality' },
-                    { text: '架构开发与领域架构', link: '/general/knowledge/architecture/development-domain' }
-                  ]
-                },
-                {
                   text: '真题',
                   collapsed: true,
                   items: [
@@ -82,16 +73,14 @@ export default defineConfig({
               text: '软件工程',
               collapsed: false,
               items: [
-                {
-                  text: '知识',
-                  collapsed: true,
-                  items: [
-                    { text: '总览', link: '/general/knowledge/software' },
-                    { text: '文档 1：开发过程、需求与分析', link: '/general/knowledge/software/process-analysis' },
-                    { text: '文档 2：设计、模式与构件复用', link: '/general/knowledge/software/design-reuse' },
-                    { text: '文档 3：测试、质量与维护', link: '/general/knowledge/software/testing-maintenance' }
-                  ]
-                },
+                { text: '0 总览', link: '/general/chapters/software-engineering' },
+                { text: '1 基础与过程管理', link: '/general/chapters/software-engineering/1-foundation-process' },
+                { text: '2 需求与分析建模', link: '/general/chapters/software-engineering/2-requirements-analysis' },
+                { text: '3 系统设计与设计模式', link: '/general/chapters/software-engineering/3-design-patterns' },
+                { text: '4 构件化与软件复用', link: '/general/chapters/software-engineering/4-components-reuse' },
+                { text: '5 软件测试', link: '/general/chapters/software-engineering/5-testing' },
+                { text: '6 软件可靠性', link: '/general/chapters/software-engineering/6-reliability' },
+                { text: '7 软件运行与维护', link: '/general/chapters/software-engineering/7-maintenance' },
                 {
                   text: '真题',
                   collapsed: true,

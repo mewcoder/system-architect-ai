@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import QuestionBank from '../../../.vitepress/theme/QuestionBank.vue'
-import { selectQuestions } from '../../../.vitepress/theme/questionBankUtils'
+import { selectQuestions, summarizeQuestionBank } from '../../../.vitepress/theme/questionBankUtils'
 import questionBank from '../../../data/question-banks/architecture.json'
 
 const dssaQuestions = selectQuestions(questionBank.questions, [
@@ -19,9 +19,16 @@ const dssaQuestions = selectQuestions(questionBank.questions, [
   '202605-67',
   '202605-68',
 ])
+
+const dssaTrend = summarizeQuestionBank(dssaQuestions)
 </script>
 
 # 特定领域软件架构（DSSA）
+
+> <strong>考试趋势：</strong>本章平均每年约<strong>{{ dssaTrend.annualAverageLabel }} 分</strong>。
+>
+> - DSSA 从早期真题到最近考试持续出现，属于稳定的中频主题；题量不算最大，但近年仍有连续记录，不能按低频知识点处理。
+> - 复习重点是<strong>领域分析、领域设计、领域实现</strong>，以及角色分工、五个建立阶段、垂直域与水平域的区别。
 
 ## 1. DSSA 基础
 
@@ -38,6 +45,8 @@ DSSA 的三层次系统模型如下：
 - <strong>领域特定的应用开发环境：</strong>由应用工程师利用 DSSA 和可复用产品单元，实例化面向具体应用的体系结构。
 - <strong>应用执行环境：</strong>由操作员运行实例化后的应用体系结构。
 
+对应真题：<a class="question-ref" href="#q-dssa-201311-31">#2013.11-31</a><a class="question-ref" href="#q-dssa-202111-34">#2021.11-34</a><a class="question-ref" href="#q-dssa-202311-29">#2023.11-29</a>
+
 ## 2. DSSA 的活动、角色与建立过程
 
 ### 三项基本活动
@@ -46,12 +55,16 @@ DSSA 的三层次系统模型如下：
 2. <strong>领域设计：</strong>依据领域模型设计适应多个应用的高层解决方案，主要成果是<strong>DSSA</strong>，并通过可选、可替代方案表达变化性。
 3. <strong>领域实现：</strong>依据领域模型和 DSSA 开发、提取、验证并组织<strong>可复用信息</strong>，实现复用基础设施。
 
+对应真题：<a class="question-ref" href="#q-dssa-201511-39">#2015.11-39</a><a class="question-ref" href="#q-dssa-201611-32">#2016.11-32</a><a class="question-ref" href="#q-dssa-201811-32">#2018.11-32</a><a class="question-ref" href="#q-dssa-202211-45">#2022.11-45</a><a class="question-ref" href="#q-dssa-202311-42">#2023.11-42</a><a class="question-ref" href="#q-dssa-202405-26">#2024.05-26</a><a class="question-ref" href="#q-dssa-202511-8">#2025.11-8</a><a class="question-ref" href="#q-dssa-202605-67">#2026.05-67</a><a class="question-ref" href="#q-dssa-202605-68">#2026.05-68</a>
+
 ### 四类角色
 
 - <strong>领域专家：</strong>提供领域需求、设计实现和技术演化知识，协助建立领域字典、选择样本系统并复审领域工程产品。
 - <strong>领域分析人员：</strong>负责知识获取、领域分析和领域模型的建立、验证与维护。
 - <strong>领域设计人员：</strong>依据领域模型和现有系统设计 DSSA，验证其准确性和一致性，并建立模型与架构的联系。
 - <strong>领域实现人员：</strong>依据领域模型和 DSSA 开发或提取可复用构件，验证构件并建立架构与构件的联系。
+
+对应真题：<a class="question-ref" href="#q-dssa-201411-32">#2014.11-32</a><a class="question-ref" href="#q-dssa-201611-32">#2016.11-32</a>
 
 ### 五个建立阶段
 
@@ -63,9 +76,11 @@ DSSA 的三层次系统模型如下：
 
 建立过程具有<strong>并发、递归、反复</strong>的特点，也可理解为螺旋式过程：阶段不必严格顺序执行，部分步骤可在更细层次递归，且每轮迭代都增加细节、修正和完善结果。
 
+对应真题：<a class="question-ref" href="#q-dssa-202411-66">#2024.11-66</a>
+
 <details>
 <summary>相关真题：14 道独立题 / 22 条记录</summary>
 
-<QuestionBank :questions="dssaQuestions" compact hide-categories />
+<QuestionBank :questions="dssaQuestions" anchor-prefix="dssa" compact hide-categories />
 
 </details>

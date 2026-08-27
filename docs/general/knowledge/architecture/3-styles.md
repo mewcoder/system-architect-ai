@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import QuestionBank from '../../../.vitepress/theme/QuestionBank.vue'
-import { selectQuestions } from '../../../.vitepress/theme/questionBankUtils'
+import { selectQuestions, summarizeQuestionBank } from '../../../.vitepress/theme/questionBankUtils'
 import questionBank from '../../../data/question-banks/architecture.json'
 
 const styleQuestions = selectQuestions(questionBank.questions, [
@@ -51,9 +51,16 @@ const styleQuestions = selectQuestions(questionBank.questions, [
   '201311-29',
   '201311-32',
 ])
+
+const stylesTrend = summarizeQuestionBank(styleQuestions)
 </script>
 
 # 软件架构风格
+
+> <strong>考试趋势：</strong>本章平均每年约<strong>{{ stylesTrend.annualAverageLabel }} 分</strong>。
+>
+> - 软件架构风格从 2013 年至今持续出现，近年每场都有记录，是架构设计中最稳定的基础主线之一。
+> - 题目以风格识别、构件与连接件特征、数据或控制流向及适用场景辨析为主；复习时先按五类风格建立对照，再记具体风格的优缺点。
 
 软件架构风格是<strong>特定应用领域中系统组织方式的惯用模式</strong>，反映该领域系统共有的<strong>结构和语义特征</strong>。它通过构件、连接件及其组合约束，描述一类系统通常如何组织和协作。
 
@@ -66,6 +73,8 @@ const styleQuestions = selectQuestions(questionBank.questions, [
 - <strong>语义：</strong>说明这种组织方式所表达的系统行为和协作含义。
 
 常见架构风格可以按核心组织方式分为五类：<strong>数据流风格、调用/返回风格、以数据为中心的风格、虚拟机风格和独立构件风格</strong>。
+
+对应真题：<a class="question-ref" href="#q-styles-201311-29">#2013.11-29</a><a class="question-ref" href="#q-styles-201411-34">#2014.11-34</a><a class="question-ref" href="#q-styles-201511-29">#2015.11-29</a><a class="question-ref" href="#q-styles-201611-35">#2016.11-35</a><a class="question-ref" href="#q-styles-202311-22">#2023.11-22</a><a class="question-ref" href="#q-styles-202411-33">#2024.11-33</a><a class="question-ref" href="#q-styles-202605-70">#2026.05-70</a>
 
 ## 2. 典型架构风格与辨析
 
@@ -131,6 +140,8 @@ const styleQuestions = selectQuestions(questionBank.questions, [
   </section>
 </div>
 
+对应真题：<a class="question-ref" href="#q-styles-201311-32">#2013.11-32</a><a class="question-ref" href="#q-styles-201511-12">#2015.11-12</a><a class="question-ref" href="#q-styles-201511-36">#2015.11-36</a><a class="question-ref" href="#q-styles-201511-37">#2015.11-37</a><a class="question-ref" href="#q-styles-201611-31">#2016.11-31</a><a class="question-ref" href="#q-styles-201611-34">#2016.11-34</a><a class="question-ref" href="#q-styles-201611-36">#2016.11-36</a><a class="question-ref" href="#q-styles-201611-37">#2016.11-37</a><a class="question-ref" href="#q-styles-201611-38">#2016.11-38</a><a class="question-ref" href="#q-styles-201711-34">#2017.11-34</a><a class="question-ref" href="#q-styles-201711-35">#2017.11-35</a><a class="question-ref" href="#q-styles-201711-36">#2017.11-36</a><a class="question-ref" href="#q-styles-201711-37">#2017.11-37</a><a class="question-ref" href="#q-styles-201811-34">#2018.11-34</a><a class="question-ref" href="#q-styles-201811-35">#2018.11-35</a><a class="question-ref" href="#q-styles-202011-10">#2020.11-10</a><a class="question-ref" href="#q-styles-202011-26">#2020.11-26</a><a class="question-ref" href="#q-styles-202111-35">#2021.11-35</a><a class="question-ref" href="#q-styles-202111-48">#2021.11-48</a><a class="question-ref" href="#q-styles-202211-42">#2022.11-42</a><a class="question-ref" href="#q-styles-202311-34">#2023.11-34</a><a class="question-ref" href="#q-styles-202311-43">#2023.11-43</a><a class="question-ref" href="#q-styles-202405-24">#2024.05-24</a><a class="question-ref" href="#q-styles-202405-25">#2024.05-25</a><a class="question-ref" href="#q-styles-202405-42">#2024.05-42</a><a class="question-ref" href="#q-styles-202405-43">#2024.05-43</a><a class="question-ref" href="#q-styles-202411-6">#2024.11-6</a><a class="question-ref" href="#q-styles-202411-44">#2024.11-44</a><a class="question-ref" href="#q-styles-202411-55">#2024.11-55</a><a class="question-ref" href="#q-styles-202505-14">#2025.05-14</a><a class="question-ref" href="#q-styles-202505-27">#2025.05-27</a><a class="question-ref" href="#q-styles-202505-55">#2025.05-55</a><a class="question-ref" href="#q-styles-202511-30">#2025.11-30</a><a class="question-ref" href="#q-styles-202511-40">#2025.11-40</a><a class="question-ref" href="#q-styles-202511-52">#2025.11-52</a><a class="question-ref" href="#q-styles-202511-53">#2025.11-53</a><a class="question-ref" href="#q-styles-202605-48">#2026.05-48</a><a class="question-ref" href="#q-styles-202605-50">#2026.05-50</a><a class="question-ref" href="#q-styles-202605-51">#2026.05-51</a>
+
 ## 历年真题
 
-<QuestionBank :questions="styleQuestions" compact hide-categories />
+<QuestionBank :questions="styleQuestions" anchor-prefix="styles" compact hide-categories />

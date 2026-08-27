@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import QuestionBank from '../../../.vitepress/theme/QuestionBank.vue'
-import { selectQuestions } from '../../../.vitepress/theme/questionBankUtils'
+import { selectQuestions, summarizeQuestionBank } from '../../../.vitepress/theme/questionBankUtils'
 import questionBank from '../../../data/question-banks/architecture.json'
 
 function questionsForCategories(categories: string[]) {
@@ -36,9 +36,16 @@ newArchitectureQuestions.sort((a, b) =>
   b.question_no - a.question_no ||
   a.part_no - b.part_no
 )
+
+const newArchitectureTrend = summarizeQuestionBank(newArchitectureQuestions)
 </script>
 
 # 新技术架构
+
+> <strong>考试趋势：</strong>本章平均每年约<strong>{{ newArchitectureTrend.annualAverageLabel }} 分</strong>。
+>
+> - 新技术架构在 2024 年之后明显活跃，最近的考查重点集中在人工智能知识表示、机器学习、大模型与工业智能、边缘计算等方向；物联网、区块链和数字孪生相对分散。
+> - 复习不要只记新名词，优先掌握<strong>分层结构、数据流向、计算位置、模型或服务边界及典型应用</strong>，并结合题干判断技术解决的问题。
 
 ## 1. 数据与智能架构
 
@@ -49,6 +56,8 @@ newArchitectureQuestions.sort((a, b) =>
 - <strong>工业大模型五层：</strong>从下到上为基础设施层、基座层、模型层、交互层、应用层；算力与基础资源在底部，业务场景在顶部。
 - <strong>投毒与模态对齐：</strong>投毒污染训练、检索或上下文数据，导致模型输出错误；多模态融合的关键是不同模态在时空和语义上的对齐。
 
+对应真题：<a class="question-ref" href="#q-new-architecture-202505-23">#2025.05-23</a><a class="question-ref" href="#q-new-architecture-202505-42">#2025.05-42</a><a class="question-ref" href="#q-new-architecture-202605-10">#2026.05-10</a><a class="question-ref" href="#q-new-architecture-202605-11">#2026.05-11</a><a class="question-ref" href="#q-new-architecture-202605-13">#2026.05-13</a><a class="question-ref" href="#q-new-architecture-202605-37">#2026.05-37</a><a class="question-ref" href="#q-new-architecture-202605-38">#2026.05-38</a><a class="question-ref" href="#q-new-architecture-202605-39">#2026.05-39</a><a class="question-ref" href="#q-new-architecture-202605-40">#2026.05-40</a><a class="question-ref" href="#q-new-architecture-202605-41">#2026.05-41</a><a class="question-ref" href="#q-new-architecture-202511-49">#2025.11-49</a><a class="question-ref" href="#q-new-architecture-202511-58">#2025.11-58</a><a class="question-ref" href="#q-new-architecture-202505-57">#2025.05-57</a><a class="question-ref" href="#q-new-architecture-202411-63">#2024.11-63</a>
+
 ## 2. 物联与新型计算
 
 - <strong>物联网三层：</strong>感知层采集状态，网络传输层负责连接和传输，应用层面向具体业务；物联网系统的软件架构风格通常按层次型理解。
@@ -56,9 +65,11 @@ newArchitectureQuestions.sort((a, b) =>
 - <strong>区块链：</strong>按参与范围分为公有链、私有链和联盟链，分别对应开放参与、组织内部受控和多组织许可参与。
 - <strong>数字孪生：</strong>强调物理实体与数字模型的映射、同步和反馈；共性应用包括描述、诊断、预测、决策。
 
-<details>
-<summary>真题摘要：20 道独立题 / 20 条记录</summary>
+对应真题：<a class="question-ref" href="#q-new-architecture-202405-5">#2024.05-5</a><a class="question-ref" href="#q-new-architecture-202405-6">#2024.05-6</a><a class="question-ref" href="#q-new-architecture-202111-33">#2021.11-33</a><a class="question-ref" href="#q-new-architecture-202311-47">#2023.11-47</a><a class="question-ref" href="#q-new-architecture-202505-44">#2025.05-44</a><a class="question-ref" href="#q-new-architecture-202605-14">#2026.05-14</a>
 
-<QuestionBank :questions="newArchitectureQuestions" compact hide-categories />
+<details>
+<summary>对应真题</summary>
+
+<QuestionBank :questions="newArchitectureQuestions" anchor-prefix="new-architecture" compact hide-categories />
 
 </details>

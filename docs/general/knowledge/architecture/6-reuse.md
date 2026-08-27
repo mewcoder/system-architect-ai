@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import QuestionBank from '../../../.vitepress/theme/QuestionBank.vue'
-import { selectQuestions } from '../../../.vitepress/theme/questionBankUtils'
+import { selectQuestions, summarizeQuestionBank } from '../../../.vitepress/theme/questionBankUtils'
 import questionBank from '../../../data/question-banks/architecture.json'
 
 const reuseQuestions = selectQuestions(questionBank.questions, [
@@ -10,9 +10,16 @@ const reuseQuestions = selectQuestions(questionBank.questions, [
   '202211-43',
   '202211-44',
 ])
+
+const reuseTrend = summarizeQuestionBank(reuseQuestions)
 </script>
 
 # 软件架构复用
+
+> <strong>考试趋势：</strong>本章平均每年约<strong>{{ reuseTrend.annualAverageLabel }} 分</strong>。
+>
+> - 架构复用属于低频补充主题，当前题库的记录主要集中在 2022～2024 年；复习以核心概念和过程判断为主，不必投入与架构风格、质量属性相同的时间。
+> - 重点区分<strong>机会复用与系统复用</strong>，并掌握可复用资产的构造/获取、管理、使用三个阶段及软件产品线、核心资产等术语。
 
 软件架构复用是对已有<strong>软件资产</strong>的重复利用，以提高开发效率、降低开发成本。可复用资产包括需求、架构、构件和设计模式等。
 
@@ -27,6 +34,8 @@ const reuseQuestions = selectQuestions(questionBank.questions, [
 
 判断要点：<strong>开发中发现后复用 → 机会复用；开发前规划 → 系统复用</strong>。
 
+对应真题：<a class="question-ref" href="#q-reuse-202311-15">#2023.11-15</a><a class="question-ref" href="#q-reuse-202211-43">#2022.11-43</a>
+
 ## 2. 复用过程
 
 软件复用的基本过程按顺序分为三个阶段：
@@ -37,6 +46,8 @@ const reuseQuestions = selectQuestions(questionBank.questions, [
 
 题目出现“构造恰当的、可复用的资产”时，选<strong>构造/获取</strong>；出现“分类、索引、版本、文档、检索”时，选<strong>管理</strong>。
 
+对应真题：<a class="question-ref" href="#q-reuse-202411-39">#2024.11-39</a><a class="question-ref" href="#q-reuse-202405-21">#2024.05-21</a><a class="question-ref" href="#q-reuse-202211-44">#2022.11-44</a>
+
 ## 历年真题
 
-<QuestionBank :questions="reuseQuestions" compact hide-categories />
+<QuestionBank :questions="reuseQuestions" anchor-prefix="reuse" compact hide-categories />

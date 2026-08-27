@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import QuestionBank from '../../../.vitepress/theme/QuestionBank.vue'
-import { selectQuestions } from '../../../.vitepress/theme/questionBankUtils'
+import { selectQuestions, summarizeQuestionBank } from '../../../.vitepress/theme/questionBankUtils'
 import questionBank from '../../../data/question-banks/architecture.json'
 
 const qualityQuestions = selectQuestions(questionBank.questions, [
@@ -33,9 +33,16 @@ const qualityQuestions = selectQuestions(questionBank.questions, [
   '201511-40',
   '201411-36',
 ])
+
+const qualityTrend = summarizeQuestionBank(qualityQuestions)
 </script>
 
 # 软件质量属性
+
+> <strong>考试趋势：</strong>本章平均每年约<strong>{{ qualityTrend.annualAverageLabel }} 分</strong>。
+>
+> - 质量属性题长期有记录，但单场题量波动明显，且经常与架构评估、质量场景和架构策略结合出现。
+> - 复习优先性能、安全性、可用性、可靠性、可修改性和可测试性，重点训练<strong>场景关键词 → 质量属性 → 架构策略</strong>的对应关系。
 
 软件质量属性是系统<strong>可测量或可测试的属性</strong>，用于描述系统满足利益相关者需求的程度。架构设计不仅要实现功能，还要重点满足性能、安全性、可修改性、可用性和可靠性等质量属性。
 
@@ -45,6 +52,8 @@ const qualityQuestions = selectQuestions(questionBank.questions, [
 
 - <strong>开发期质量属性：</strong>易理解性、可扩展性、可重用性、可测试性、可维护性、可移植性，主要影响开发、修改和演化的成本。
 - <strong>运行期质量属性：</strong>性能、可用性、安全性、可靠性、易用性、互操作性、可伸缩性、健壮性，主要体现在系统运行和用户使用过程中。
+
+对应真题：<a class="question-ref" href="#q-quality-202405-20">#2024.05-20</a><a class="question-ref" href="#q-quality-202311-20">#2023.11-20</a><a class="question-ref" href="#q-quality-201511-30">#2015.11-30</a><a class="question-ref" href="#q-quality-202605-55">#2026.05-55</a>
 
 ## 2. 面向架构评估的质量属性
 
@@ -63,6 +72,8 @@ const qualityQuestions = selectQuestions(questionBank.questions, [
 另外，<strong>可扩展性</strong>关注适应新需求增加功能的能力，<strong>可变性</strong>关注架构经扩充或变更成为新架构的能力；<strong>可伸缩性</strong>关注用户数或数据量增加后能否维持服务质量，<strong>健壮性</strong>关注非法操作、异常输入或软硬件故障下能否保持正常运行。
 
 可靠性计算常考：`MTBF = MTTF + MTTR`。当 `MTTR` 很小时，<strong>MTTF ≈ MTBF</strong>；“稳定性”不能直接当作可靠性的正式子特性。
+
+对应真题：<a class="question-ref" href="#q-quality-202605-56">#2026.05-56</a><a class="question-ref" href="#q-quality-202511-61">#2025.11-61</a><a class="question-ref" href="#q-quality-202505-45">#2025.05-45</a><a class="question-ref" href="#q-quality-202411-10">#2024.11-10</a><a class="question-ref" href="#q-quality-202411-69">#2024.11-69</a><a class="question-ref" href="#q-quality-202411-70">#2024.11-70</a><a class="question-ref" href="#q-quality-202405-16">#2024.05-16</a><a class="question-ref" href="#q-quality-202405-47">#2024.05-47</a><a class="question-ref" href="#q-quality-202405-49">#2024.05-49</a><a class="question-ref" href="#q-quality-202311-18">#2023.11-18</a><a class="question-ref" href="#q-quality-202211-46">#2022.11-46</a><a class="question-ref" href="#q-quality-202111-40">#2021.11-40</a><a class="question-ref" href="#q-quality-202011-20">#2020.11-20</a><a class="question-ref" href="#q-quality-201611-33">#2016.11-33</a>
 
 ## 3. 质量属性场景描述
 
@@ -92,6 +103,8 @@ const qualityQuestions = selectQuestions(questionBank.questions, [
 - 上线后增加功能的时间和人力受限 → <strong>可修改性</strong>；
 - 不同系统之间交换数据和调用服务 → <strong>互操作性</strong>。
 
+对应真题：<a class="question-ref" href="#q-quality-202411-35">#2024.11-35</a><a class="question-ref" href="#q-quality-202405-18">#2024.05-18</a><a class="question-ref" href="#q-quality-202211-47">#2022.11-47</a><a class="question-ref" href="#q-quality-202011-29">#2020.11-29</a><a class="question-ref" href="#q-quality-201911-33">#2019.11-33</a><a class="question-ref" href="#q-quality-201811-37">#2018.11-37</a><a class="question-ref" href="#q-quality-201711-39">#2017.11-39</a><a class="question-ref" href="#q-quality-201611-40">#2016.11-40</a><a class="question-ref" href="#q-quality-201511-40">#2015.11-40</a><a class="question-ref" href="#q-quality-201411-36">#2014.11-36</a>
+
 ## 历年真题
 
-<QuestionBank :questions="qualityQuestions" compact hide-categories />
+<QuestionBank :questions="qualityQuestions" anchor-prefix="quality" compact hide-categories />
